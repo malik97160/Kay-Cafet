@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatSidenavModule } from '@angular/material';
+import { MatDividerModule, MatSidenavModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { DashboadComponent } from 'src/app/modules/dashboad/dashboad.component';
 import { PostsComponent } from 'src/app/modules/posts/posts.component';
@@ -17,7 +17,8 @@ import { AdminComponent } from './admin.component';
     CommonModule,
     RouterModule,
     SharedModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDividerModule
   ]
 })
 export class AdminModule { }

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDividerModule, MatSidenavModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { DashboadComponent } from 'src/app/modules/dashboad/dashboad.component';
@@ -18,7 +19,8 @@ import { AdminComponent } from './admin.component';
     RouterModule,
     SharedModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    FlexLayoutModule
   ]
 })
 export class AdminModule { }

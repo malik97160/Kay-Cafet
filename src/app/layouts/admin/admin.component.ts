@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+sideBarOpen= true;
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  sideBarToggler($event: any){
+    this.sideBarOpen = !this.sideBarOpen;
   }
 
 }

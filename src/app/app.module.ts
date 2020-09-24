@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './layouts/admin/admin.module';
-import { MatTableModule, MatSortModule } from '@angular/material'  
 
 @NgModule({
   declarations: [
@@ -15,9 +14,7 @@ import { MatTableModule, MatSortModule } from '@angular/material'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AdminModule,
-    MatTableModule,
-    MatSortModule
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

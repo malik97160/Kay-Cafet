@@ -1,19 +1,36 @@
-<div>
-    Line charts
-</div>
 
-<mat-divider></mat-divider>
+          <table mat-table [dataSource]="dataSource">
 
-<div>
-    <div>Line charts</div>
-    <div>Line charts</div>
-    <div>Line charts</div>
-    <div>Line charts</div>
-</div>
+            <!-- Position Column -->
+            <ng-container matColumnDef="CommandNumber">
+                <th mat-header-cell *matHeaderCellDef> No. de commande </th>
+                <td mat-cell *matCellDef="let element"> {{element.commandNumber}} </td>
+            </ng-container>
 
-<mat-divider></mat-divider>
+            <!-- Name Column -->
+            <ng-container matColumnDef="composition">
+                <th mat-header-cell *matHeaderCellDef> Commande </th>
+                <td mat-cell *matCellDef="let element"> {{element.composition}} </td>
+            </ng-container>
 
-<div>
-    <div>Table</div>
-    <div>Pie chart</div>
-</div>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef> Montant </th>
+                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="userName">
+              <th mat-header-cell *matHeaderCellDef> Utilisateur </th>
+              <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>

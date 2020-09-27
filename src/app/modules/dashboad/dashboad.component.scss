@@ -5,3 +5,19 @@ table {
   th.mat-sort-header-sorted {
     color: black;
   }
+
+  ::ng-deep .mat-select-panel.pickupTimeSelect { 
+    max-height: 4vh !important;
+  }
+
+  .untreated {
+    fill: red;
+    // stroke: #0F1C3F;
+    stroke-width: 0.1875em;
+  }
+
+  .treated {
+    fill: green;
+    // stroke: #0F1C3F;
+    stroke-width: 0.1875em;
+  }

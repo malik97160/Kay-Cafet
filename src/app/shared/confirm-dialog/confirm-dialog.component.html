@@ -1,0 +1,9 @@
+<div>
+    <div class="contain-container">
+      <mat-icon id="close-icon" (click)="closeDialog()">close</mat-icon>
+      <span class="content-span full-width">{{ data.message }}</span>
+    </div>
+    <button mat-flat-button class="btn btn-danger btn-clean" [mat-dialog-close]="false">Annuler</button>
+    <button mat-flat-button class="btn btn-success btn-clean" [mat-dialog-close]="true">OK</button>
+</div>
+  

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatDividerModule, MatFormFieldModule, MatSidenavModule, MatTableModule, MatInputModule, MatSelectModule  } from '@angular/material';
+import { MatDividerModule, MatFormFieldModule, MatSidenavModule, MatTableModule, MatInputModule, MatSelectModule, MatIconModule  } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { from } from 'rxjs';
 import { DashboadComponent } from 'src/app/modules/dashboad/dashboad.component';
@@ -25,7 +25,8 @@ import { AdminComponent } from './admin.component';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule
   ]
 })
 export class AdminModule { }

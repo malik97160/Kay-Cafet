@@ -1,5 +1,8 @@
 
     <div flxLayout="row" class="filterDiv">
+      <nav>
+        <div data-content="location" class="listdata location">location</div>
+      </nav>
       <mat-form-field fxFlex fxLayoutAlign="end start" appearance="fill">
         <input matInput>
         <mat-label>Heure de récupération</mat-label>
@@ -14,26 +17,26 @@
 
           <table mat-table [dataSource]="dataSource">
 
-            <!-- Position Column -->
+            <!-- CommandNumber Column (tous les jours les numéros de commandes sont remis à zéro)-->
             <ng-container matColumnDef="commandNumber">
                 <th mat-header-cell *matHeaderCellDef> No. de commande </th>
                 <td mat-cell *matCellDef="let element"> {{element.commandNumber}} </td>
 
             </ng-container>
 
-            <!-- Name Column -->
+            <!-- Composition Column -->
             <ng-container matColumnDef="composition">
                 <th mat-header-cell *matHeaderCellDef> Commande </th>
                 <td mat-cell *matCellDef="let element"> {{element.composition}} </td>
             </ng-container>
 
-            <!-- Weight Column -->
+            <!-- Price Column -->
             <ng-container matColumnDef="price">
                 <th mat-header-cell *matHeaderCellDef> Montant </th>
                 <td mat-cell *matCellDef="let element"> {{element.price | currency : 'EUR'}} </td>
             </ng-container>
 
-            <!-- Weight Column -->
+            <!-- User name Column -->
             <ng-container matColumnDef="userName">
               <th mat-header-cell *matHeaderCellDef> Utilisateur </th>
               <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
@@ -41,17 +44,30 @@
 
             <ng-container matColumnDef="pickUpDeliveryTime">
               <th mat-header-cell *matHeaderCellDef> Récupération </th>
-              <td mat-cell *matCellDef="let element"> {{element.orderPickUpTime | date:'hh:mm'}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.orderPickUpTime | date:'HH:mm'}} </td>
           </ng-container>
 
-            <!-- Symbol Column -->
+            <!-- Status Column -->
             <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef> Status </th>
-                <td mat-cell *matCellDef="let element"> <svg viewBox="0 0 80 80" width="15" height="15">
+                <td class="tooltip" mat-cell *matCellDef="let element"> 
+                  <span class="tooltiptext">{{element.status === 'NT' ? 'Non traitée' : 'Traitée' }}</span>                  
+                  <svg viewBox="0 0 80 80" width="15" height="15">
                   <circle class="{{element.status === 'NT' ? 'untreated' : 'treated' }}" cx="40" cy="40" r="38"/>
-                </svg></td>
+                </svg>
+              </td>
             </ng-container>
-
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef>
+                <button class="matIconButton" mat-icon-button aria-label="Traitée">
+                  <mat-icon class="colorGreen">done</mat-icon>
+                </button>
+                <button class="matIconButton" mat-icon-button aria-label="Refuser">
+                  <mat-icon color="warn">block</mat-icon>
+                </button>
+              </td>
+            </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>

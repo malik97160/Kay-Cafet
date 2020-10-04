@@ -31,7 +31,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./dashboad.component.scss']
 })
 export class DashboadComponent implements OnInit {
-  displayedColumns: string[] = ['commandNumber', 'composition', 'price', 'userName', 'pickUpDeliveryTime', 'status'];
+  displayedColumns: string[] = ['commandNumber', 'composition', 'price', 'userName', 'pickUpDeliveryTime', 'status', 'actions'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   pickUpTimes: string[] = ['12:00', '12:05', '12:10', '12:30', '12:45', '13:00'];
   // @ViewChild(MatSort) sort: MatSort;

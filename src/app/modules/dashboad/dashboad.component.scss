@@ -21,3 +21,41 @@ table {
     // stroke: #0F1C3F;
     stroke-width: 0.1875em;
   }
+
+.listdata{
+  color: #4f96d3;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 6em;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  margin-left: 1em;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+button.matIconButton {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+.colorGreen{
+  color: green;
+}

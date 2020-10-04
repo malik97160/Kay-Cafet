@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ViewChild} from '@angular/core';
 import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
+import { ConfirmDialogService } from 'src/app/core/services/dialog/confirm-dialog.service';
 
 export interface PeriodicElement {
   composition: string;
@@ -49,15 +50,18 @@ export class DashboadComponent implements OnInit {
   /**
    *
    */
-  // constructor(public dialogRef: MatDialog) {
-  // }
+  constructor(public dialogService: ConfirmDialogService) {
+  }
   ngOnInit() {
   }
 
-  openConfirmRefuseOrderDialog() {
-    if(confirm(`Est tu sûr de vouloir refuser cette commande? Une notification sera envoyée à userName`)) {
-      console.log("Implement delete functionality here");
-    }
+  openConfirmRefuseOrderDialog(userName: string) {
+    this.dialogService.openConfirmDialog(`Est tu sûr de vouloir refuser cette commande? Une notification sera envoyée à ${userName} pour lui informer de cette décision.`)
+    .afterClosed().subscribe(res => {
+      if(res == true)
+      alert("La commande a été refusée");
+    });
+
   }
 
 }

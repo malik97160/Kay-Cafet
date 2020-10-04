@@ -1,5 +1,5 @@
 
-    <div flxLayout="row" class="filterDiv">
+    <!-- <div flxLayout="row" class="filterDiv">
       <nav>
         <div data-content="location" class="listdata location">location</div>
       </nav>
@@ -13,7 +13,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </div> 
+    </div>  -->
 
           <table mat-table [dataSource]="dataSource">
 
@@ -59,7 +59,7 @@
             </ng-container>
             <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef>Actions</th>
-              <td mat-cell *matCellDef>
+              <td mat-cell *matCellDef="let element">
                 <button class="matIconButton tooltip" mat-icon-button>
                   <span class="tooltiptext">Préparée</span>    
                   <mat-icon class="colorGreen">done</mat-icon>
@@ -68,7 +68,7 @@
                   <span class="tooltiptext">Récupérée</span>
                   <mat-icon>directions_run</mat-icon>
                 </button>
-                <button (click)="openConfirmRefuseOrderDialog()" class="matIconButton tooltip" mat-icon-button>
+                <button (click)="openConfirmRefuseOrderDialog(element.userName)" class="matIconButton tooltip" mat-icon-button>
                   <span class="tooltiptext">Refuser la commande</span>    
                   <mat-icon color="warn">block</mat-icon>
                 </button>

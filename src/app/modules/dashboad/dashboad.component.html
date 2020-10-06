@@ -51,7 +51,7 @@
             <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef> Status </th>
                 <td class="tooltip" mat-cell *matCellDef="let element"> 
-                  <span class="tooltiptext">{{element.status == orderStatus.untreated ? 'Non traitée' : 'Traitée' }}</span>                  
+                  <span class="tooltiptext">{{element.status == orderStatus.untreated ? 'Non traitée' : 'Préparée' }}</span>                  
                   <svg viewBox="0 0 80 80" width="15" height="15">
                   <circle class="{{element.status == orderStatus.untreated ? 'untreated' : 'treated' }}" cx="40" cy="40" r="38"/>
                 </svg>
@@ -61,12 +61,12 @@
               <th mat-header-cell *matHeaderCellDef>Actions</th>
               <td mat-cell *matCellDef="let element">
                 <button class="matIconButton tooltip" mat-icon-button>
-                  <span class="tooltiptext">Préparée</span>    
-                  <mat-icon class="colorGreen">done</mat-icon>
+                  <span class="tooltiptext">A récupérer</span>    
+                  <mat-icon>directions_run</mat-icon>
                 </button>
                 <button class="matIconButton tooltip" mat-icon-button>
-                  <span class="tooltiptext">Récupérée</span>
-                  <mat-icon>directions_run</mat-icon>
+                  <span class="tooltiptext">Terminer la commande</span>
+                  <mat-icon class="colorGreen">done</mat-icon>
                 </button>
                 <button (click)="openConfirmRefuseOrderDialog(element.userName)" class="matIconButton tooltip" mat-icon-button>
                   <span class="tooltiptext">Refuser la commande</span>    

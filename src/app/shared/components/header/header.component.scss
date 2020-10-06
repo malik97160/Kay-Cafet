@@ -5,11 +5,13 @@ ul li {
 .logo{
     width: 116px;
     height: 60px;
+    margin-left: 100px;
 }
 
 .headerBandeau{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
+    z-index: 9998;
 }
 
 .headerSpan{

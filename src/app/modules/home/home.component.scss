@@ -5,16 +5,55 @@
     background-color: rgb(235, 228, 213);
     background-image: url("/assets/images/KayCafetHomeBackground-min.png");
     background-attachment: fixed;
-    min-width: 1903px;
-    left: -356.5px;
     width: 100%;
     height: 100%;
+    left: -356.5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menuDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 87%;
+}
+
+.categoriesDiv{
+    height: 13%;
+    background-color: orange;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .categories-menu {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #a7781d;
-    border-top: none;
-    position: relative;
+    display: flex;  
+    flex-direction: row;
+    justify-content: center;
+    background-color: pink;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    list-style-type: none;
+    margin-top: 2rem;
+    width: 60%;
+ }
+
+.inner-container{
+    background-color: burlywood;
+    height: 100%;
+    width: 60%;
+}
+
+.foodCategories{
+    margin-left: 2rem;
+}
+
+.cart{
+    background-color: green;
+    height: 100%;
+    width: 18%;
+}
+.spacing {
+    width: 18%;
 }

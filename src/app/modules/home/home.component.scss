@@ -6,8 +6,6 @@
     background-image: url("/assets/images/KayCafetHomeBackground-min.png");
     background-attachment: fixed;
     width: 100%;
-    height: 100%;
-    left: -356.5px;
     display: flex;
     flex-direction: column;
 }
@@ -20,8 +18,8 @@
 }
 
 .categoriesDiv{
-    height: 13%;
-    background-color: orange;
+    height: 5rem;
+    // background-color: orange;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -31,29 +29,60 @@
     display: flex;  
     flex-direction: row;
     justify-content: center;
-    background-color: pink;
+    // background-color: pink;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05rem;
     list-style-type: none;
     margin-top: 2rem;
     width: 60%;
  }
 
 .inner-container{
-    background-color: burlywood;
     height: 100%;
     width: 60%;
 }
 
 .foodCategories{
     margin-left: 2rem;
+    cursor: pointer;
 }
 
 .cart{
-    background-color: green;
-    height: 100%;
+    // background-color: green;
     width: 18%;
 }
 .spacing {
     width: 18%;
+}
+
+.inner-container{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+.itemsCategory{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+}
+
+.item{
+    width: 22rem;
+    color: #444;
+    background-color: rgb(235, 228, 213);
+    height: 8rem;
+    margin-top: 0.5rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.12);;
+}
+
+.categoryTitle{
+    margin-top: 2rem;
+}
+
+img{
+    max-width:100%;
+    max-height:100%;
 }

@@ -51,6 +51,10 @@
     background-color: white;
     width: 28%;
     min-height: 100%;
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
 }
 
 .cartTitle {

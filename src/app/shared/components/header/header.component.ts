@@ -16,4 +16,8 @@ export class HeaderComponent implements OnInit {
   toggleSideBar(){
     this.toggleSideBarForMe.emit();
   }
+
+  displayCartDialog(){
+    
+  }
 }

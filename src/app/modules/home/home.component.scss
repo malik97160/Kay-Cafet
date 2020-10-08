@@ -2,24 +2,28 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center 50%;
-    background-color: rgb(235, 228, 213);
+    background-color: rgb(249, 249, 249);// rgb(235, 228, 213);
     background-image: url("/assets/images/KayCafetHomeBackground-min.png");
     background-attachment: fixed;
     width: 100%;
     display: flex;
     flex-direction: column;
+    //background-color: salmon;
+    //height: 100%;
 }
 
 .menuDiv{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     height: 87%;
+    // position: relative;
+    // overflow: hidden;
 }
 
 .categoriesDiv{
     height: 5rem;
-    background-color: orange;
+    //background-color: orange;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -29,7 +33,7 @@
     display: flex;  
     flex-direction: row;
     justify-content: center;
-    background-color: pink;
+    //background-color: pink;
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     list-style-type: none;
@@ -38,8 +42,9 @@
  }
 
 .inner-container{
-    height: 100%;
+    //height: 100%;
     width: 60%;
+    //background-color: red;
 }
 
 .foodCategories{
@@ -49,10 +54,12 @@
 
 .cart{
     background-color: white;
-    width: 28%;
-    min-height: 100%;
-    position: fixed;
+    width: 20%;
+    height: 50rem;
     overflow-y: scroll;
+    margin-left: 10%;
+    display: none;
+    float: right;
     top: 0;
     bottom: 0;
 }
@@ -78,14 +85,11 @@
     background-color: yellowgreen;
 }
 
-.spacing {
-    width: 28%;
-}
-
 .inner-container{
     display: flex;
     flex-direction: column;
-    align-content: flex-start;
+    height: 100%;
+    //align-content: flex-start;
 }
 
 .itemsCategory{
@@ -98,7 +102,7 @@
 .item{
     width: 22rem;
     color: #444;
-    background-color: rgb(235, 228, 213);
+    background-color: white; //rgb(235, 228, 213);
     height: 8rem;
     margin-top: 0.5rem;
     border-radius: 0.4rem;

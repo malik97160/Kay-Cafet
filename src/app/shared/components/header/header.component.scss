@@ -11,7 +11,11 @@ ul li {
 .headerBandeau{
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    z-index: 9998;
+}
+
+.stickyHeader{
+    position: fixed;
+    top: 0;
 }
 
 .headerSpan{

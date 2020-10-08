@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./site.component.scss']
 })
 export class SiteComponent implements OnInit {
-
+cartDialogOpen = false;
   constructor() { }
 
   ngOnInit(): void {

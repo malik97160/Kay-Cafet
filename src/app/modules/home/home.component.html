@@ -1,6 +1,6 @@
 
-<div class="mainDiv">
-    <div class="categoriesDiv">
+<div class="mainDiv" (scroll)="onWindowScroll($event);">
+    <div id="categories" class="categoriesDiv">
         <ul class="categories-menu">
             <li class="foodCategories">Formules</li>
             <li class="foodCategories">Sandwichs</li>
@@ -8,7 +8,6 @@
             <li class="foodCategories">Boissons</li>
             <li class="foodCategories">Desserts</li>
         </ul>
-        <div class="spacing"></div>
     </div>
     <div class="menuDiv">
         <div class="inner-container">
@@ -62,13 +61,13 @@
         </div>
         <div class="cart">
             <div class="cartTitle">Ma commande</div>
-            <mat-divider></mat-divider>
+            <!-- <mat-divider></mat-divider> -->
             <div class="cartItem"></div>
             <div class="cartItem"></div>
             <div class="cartItem"></div>
             <div class="cartItem"></div>
             <div class="cartItem"></div>
-            <mat-divider></mat-divider>
+            <!-- <mat-divider></mat-divider> -->
             <div class="orderDiv">
                 <div class="totalAmount">30£</div>
                 <button mat-button color="primary"></button>

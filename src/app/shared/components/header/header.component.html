@@ -1,32 +1,16 @@
-<mat-toolbar class="headerBandeau">
+<mat-toolbar id="headerBandeau" class="headerBandeau">
     <mat-toolbar-row>
         <button mat-icon-button (click)="toggleSideBar()">
 <mat-icon>menu</mat-icon>
         </button>
 
         <img class="logo" src="assets/images/kayCafetLogo.png" alt="Kay Cafet'" /><span class="headerSpan">Kay Cafet'</span>
-        <div fxFlex fxLaout="row" fxLayoutAlign="flex-end">
-            <ul fxLayout="row" fxLayoutGap="20px">
+        <div >
+            <ul>
                 <li>
                     <button mat-icon-button>
-                        <mat-icon>settings</mat-icon>
+                        <mat-icon (click)="displayCartDialog()">shopping_cart</mat-icon>
                     </button>
-                </li>
-                <li>
-                    <button mat-icon-button>
-                        <mat-icon>help_outline</mat-icon>
-                    </button>
-                </li>
-                <li>
-                     <button mat-button [matMenuTriggerFor]="menu">
-                         <mat-icon>person_outline</mat-icon>
-                     </button>
-                    <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
-                        <mat-icon>exit_to_app</mat-icon>
-                        Sign out
-                    </button>
-                    </mat-menu>
                 </li>
             </ul>
         </div>

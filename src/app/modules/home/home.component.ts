@@ -33,9 +33,8 @@ export class HomeComponent implements OnInit {
   let categoriesHeight = document.getElementById("categories").clientHeight; 
   let stickyHeight = headerHeight + categoriesHeight;
   let anchor = document.getElementById(anchorName);
-  debugger;
-  let anchorOffset = anchor.offsetTop;
-  let position = anchorOffset //window.pageYOffset > stickyHeight ? anchorOffset + stickyHeight : anchorOffset;
-  this.viewPortScroller.scrollToPosition([0, position]);
+  let a = anchor.getBoundingClientRect();
+  let position = window.pageYOffset > stickyHeight ? a.top + window.scrollY - stickyHeight : a.top + window.scrollY - 2*stickyHeight; 
+  this.viewPortScroller.scrollToPosition([a.left, position]);
  }
 }

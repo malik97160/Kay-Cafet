@@ -16,12 +16,13 @@ export class HomeComponent implements OnInit {
   onWindowScroll(e) {
     let header = document.getElementById('headerBandeau');
     let categories = document.getElementById("categories");
-    if (window.pageYOffset > (header.offsetTop + categories.offsetTop)) {
+    if (window.pageYOffset > (header.clientHeight + categories.clientHeight)) {
       header.classList.add('stickyHeader');
-      //categories.classList.add('stickyHeader');
+      categories.classList.add('stickyMenu');
+      categories.style.top = `${header.clientHeight}px`;
     } else {
-     let element = document.getElementById('headerBandeau');
-       element.classList.remove('stickyHeader'); 
+       header.classList.remove('stickyHeader'); 
+       categories.classList.remove('stickyMenu');
     }
  }
 }

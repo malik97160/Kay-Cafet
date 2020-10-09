@@ -2,16 +2,16 @@
 <div class="mainDiv" (scroll)="onWindowScroll($event);">
     <div id="categories" class="categoriesDiv">
         <ul class="categories-menu">
-            <li class="foodCategories">Formules</li>
-            <li class="foodCategories">Sandwichs</li>
-            <li class="foodCategories">Salades</li>
-            <li class="foodCategories">Boissons</li>
-            <li class="foodCategories">Desserts</li>
+            <li class="foodCategories"><a (click)="scrollTo('formules')">Formules</a></li>
+            <li class="foodCategories"><a (click)="scrollTo('sandwichs')">Sandwichs</a></li>
+            <li class="foodCategories"><a (click)="scrollTo('salades')">Salades</a></li>
+            <li class="foodCategories"><a (click)="scrollTo('boissons')">Boissons</a></li>
+            <li class="foodCategories"><a (click)="scrollTo('desserts')">Desserts</a></li>
         </ul>
     </div>
     <div class="menuDiv">
         <div class="inner-container">
-            <div class="categoryTitle">Formules 6 références</div> <!--dans une autre div pour les ref -->
+            <div id="formules" class="categoryTitle">Formules 6 références</div> <!--dans une autre div pour les ref -->
             <div class="itemsCategory">
                 <div class="item">
                     <div class="itemDescription">Formule végétarienne</div>
@@ -23,7 +23,7 @@
                 <div class="item">Formule Yves Leborgne</div>
             </div>
             <div class="categoryTitle">Sandwichs</div>
-            <div class="itemsCategory">
+            <div id="sandwichs" class="itemsCategory">
                 <div class="item">Sandwich au poulet</div>
                 <div class="item">Sandwich au jambon frommage</div>
                 <div class="item">Sandwich au corned beef</div>
@@ -31,7 +31,7 @@
                 <div class="item">Sandwich thon mayonnaise</div>
                 <div class="item">Sandwich merguez</div>
             </div>
-            <div class="categoryTitle">Salades</div>
+            <div id="salades" class="categoryTitle">Salades</div>
             <div class="itemsCategory">
                 <div class="item">Salade 1</div>
                 <div class="item">Salade 1</div>
@@ -40,7 +40,7 @@
                 <div class="item">Salade 1</div>
                 <div class="item">Salade 1</div>
             </div>
-            <div class="categoryTitle">Boissons</div>
+            <div id="boissons" class="categoryTitle">Boissons</div>
             <div class="itemsCategory">
                 <div class="item">Boissons</div>
                 <div class="item">Boissons</div>
@@ -49,7 +49,7 @@
                 <div class="item">Boissons</div>
                 <div class="item">Boissons</div>
             </div>
-            <div class="categoryTitle">Desserts</div>
+            <div id="desserts" class="categoryTitle">Desserts</div>
             <div class="itemsCategory">
                 <div class="item">Desserts</div>
                 <div class="item">Desserts</div>

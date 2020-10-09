@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
@@ -5,9 +6,10 @@ import { Component, HostListener, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private viewPortScroller : ViewportScroller) { }
 
   ngOnInit(): void {
   }
@@ -24,5 +26,16 @@ export class HomeComponent implements OnInit {
        header.classList.remove('stickyHeader'); 
        categories.classList.remove('stickyMenu');
     }
+ }
+
+ scrollTo(anchorName: string){
+  let headerHeight = document.getElementById('headerBandeau').clientHeight;
+  let categoriesHeight = document.getElementById("categories").clientHeight; 
+  let stickyHeight = headerHeight + categoriesHeight;
+  let anchor = document.getElementById(anchorName);
+  debugger;
+  let anchorOffset = anchor.offsetTop;
+  let position = anchorOffset //window.pageYOffset > stickyHeight ? anchorOffset + stickyHeight : anchorOffset;
+  this.viewPortScroller.scrollToPosition([0, position]);
  }
 }

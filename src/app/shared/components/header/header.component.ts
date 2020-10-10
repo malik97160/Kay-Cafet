@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ConfirmDialogService } from 'src/app/core/services/dialog/confirm-dialog.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
 @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(public dialogService: ConfirmDialogService) { }
 
   ngOnInit() {
   }
@@ -18,6 +19,6 @@ export class HeaderComponent implements OnInit {
   }
 
   displayCartDialog(){
-    
+    this.dialogService.openDialog("chart dialog", '30rem', '100%', 'chart-dialog');
   }
 }

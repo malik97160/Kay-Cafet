@@ -18,6 +18,18 @@ export class ConfirmDialogService {
         message: message
       }
     });
+  }
 
+  openDialog(message:string, width:string, height:string, className:string, disableClose?:boolean){
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: width,
+      height: height,
+      panelClass: className,
+      disableClose: disableClose ? disableClose : false
+    });
+
+    dialogRef.componentInstance.htmlContent = '<div>coucou</div>'; //this.dom.sanitize(SecurityContext.HTML, this.htmlContent);
+    dialogRef.updatePosition({ right: '0' });
+    return dialogRef;
   }
 }

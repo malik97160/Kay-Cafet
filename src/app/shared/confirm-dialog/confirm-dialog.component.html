@@ -3,7 +3,9 @@
       <mat-icon id="close-icon" (click)="closeDialog()">close</mat-icon>
       <span class="content-span full-width"><div [innerHtml]="htmlContent"></div></span>
     </div>
-    <button mat-raised-button color="warn" [mat-dialog-close]="false">Annuler</button>
-    <button mat-raised-button color="primary" [mat-dialog-close]="true">OK</button>
+    <mat-dialog-actions>
+      <button mat-raised-button color="warn" [mat-dialog-close]="false">Annuler</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="true">OK</button>
+    </mat-dialog-actions>
 </div>
   

@@ -1,0 +1,36 @@
+.headerDialog{
+    display: flex;
+    flex-direction: row;
+    background-color: powderblue;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ececec;
+}
+
+.closeDialogButton{
+    cursor: pointer;
+}
+
+.itemCart{
+    display: flex;
+    flex-direction: column;
+}
+
+.itemCartCounter{
+    display: flex;
+    flex-direction: row;
+}
+
+.itemCartContent{
+    display: flex;
+    flex-direction: row;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.itemCartPhoto{
+    width: 20%;
+    height: 5rem;
+}

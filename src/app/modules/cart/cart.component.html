@@ -1,0 +1,96 @@
+<div class="headerDialog">
+    <h1 mat-dialog-title>Ma commande</h1>
+    <button mat-icon-button class="closeDialogButton" (click)="closeDialog()">
+        <mat-icon id="close-icon">close</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content>
+    <div class="itemCart">
+        <div class="itemCartTitle">Menu Bistrot</div>
+        <div class="itemCartContent center-vertical">
+            <!-- <div class="itemCartPhoto"> -->
+            <img class="itemCartPhoto" src="https://d359hnfgsmn1y2.cloudfront.net/upload/product_foods/media/65101/web/1084ca50eec2dca8c20c965d59c3fbed38d5b0730f4d2a786a55df9750e164ec.png" alt="menu Bistrot">
+            <!-- </div> -->
+            <div class="itemCartCentral">
+                <div class="itemCartDescription">
+                    is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to
+                </div>
+                <div class="itemCartCounter">
+                    <button class="pointer" mat-icon-button (onclick)="incrementItemCounter()">
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                    <div class="counter">1</div>
+                    <button class="pointer" mat-icon-button (onclick)="decrementItemCounter()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="itemCartPrice">15.00 $</div>
+        </div>
+        <div class="itemCartComment">Ajouter un commentaire</div>
+    </div>
+    <div class="itemCart">
+        <div class="itemCartTitle">Menu Bistrot</div>
+        <div class="itemCartContent">
+            <div class="itemCartPhoto"></div>
+            <div class="itemCartCentral">
+                <div class="itemCartDescription">
+                    is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to
+                </div>
+                <div class="itemCartCounter"></div>
+            </div>
+            <div class="itemCartPrice">15.00 $</div>
+        </div>
+    </div>
+    <div class="itemCart">
+        <div class="itemCartTitle">Menu Bistrot</div>
+        <div class="itemCartContent">
+            <div class="itemCartPhoto"></div>
+            <div class="itemCartCentral">
+                <div class="itemCartDescription"></div>
+                <div class="itemCartCounter"></div>
+            </div>
+            <div class="itemCartPrice">15.00 $</div>
+        </div>
+    </div>
+    <div class="itemCart">
+        <div class="itemCartTitle">Menu Bistrot</div>
+        <div class="itemCartContent">
+            <div class="itemCartPhoto"></div>
+            <div class="itemCartCentral">
+                <div class="itemCartDescription"></div>
+                <div class="itemCartCounter"></div>
+            </div>
+            <div class="itemCartPrice">15.00 $</div>
+        </div>
+    </div>
+    <div class="itemCart">
+        <div class="itemCartTitle">Menu Bistrot</div>
+        <div class="itemCartContent">
+            <div class="itemCartPhoto"></div>
+            <div class="itemCartCentral">
+                <div class="itemCartDescription"></div>
+                <div class="itemCartCounter"></div>
+            </div>
+            <div class="itemCartPrice">15.00 $</div>
+        </div>
+    </div>
+    <div class="itemCart">
+        <div class="itemCartTitle">Menu Bistrot</div>
+        <div class="itemCartContent">
+            <div class="itemCartPhoto"></div>
+            <div class="itemCartCentral">
+                <div class="itemCartDescription"></div>
+                <div class="itemCartCounter"></div>
+            </div>
+            <div class="itemCartPrice">15.00 $</div>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button class="btn">Passer la commande</button>
+</div>

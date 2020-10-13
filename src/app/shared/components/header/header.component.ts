@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ConfirmDialogService } from 'src/app/core/services/dialog/confirm-dialog.service';
+import { CartComponent } from 'src/app/modules/cart/cart.component';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +20,6 @@ export class HeaderComponent implements OnInit {
   }
 
   displayCartDialog(){
-    this.dialogService.openDialog("chart dialog", '30rem', '100%', 'chart-dialog');
+    this.dialogService.openDialog(CartComponent, '28rem', '100%', 'chart-dialog');
   }
 }

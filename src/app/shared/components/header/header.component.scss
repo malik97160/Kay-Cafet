@@ -3,14 +3,16 @@ ul li {
 }
 
 .logo{
-    width: 116px;
-    height: 60px;
-    margin-left: 100px;
+    width: 5rem;
+    height: 3rem;
 }
 
 .headerBandeau{
     background-color: #303030;
     color: white;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 .stickyHeader{
@@ -19,5 +21,26 @@ ul li {
 }
 
 .headerSpan{
-    font-size: 35px;;
+    font-size: 2.5rem;;
+}
+
+.rightIconsDiv{
+    //background-color: red !important;
+    width: 10%;
+}
+
+.rightIcons{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.leftIcons{
+    //background-color: blue !important;
+    width: 10%;
+}
+
+.centerDiv{
+    //background-color: green !important;
+    width: 80%;
 }

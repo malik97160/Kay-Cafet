@@ -1,18 +1,21 @@
-<mat-toolbar id="headerBandeau" class="headerBandeau">
-    <mat-toolbar-row>
-        <button mat-icon-button (click)="toggleSideBar()">
-<mat-icon>menu</mat-icon>
-        </button>
-
-        <img class="logo" src="assets/images/kayCafetLogo.png" alt="Kay Cafet'" /><span class="headerSpan">Kay Cafet'</span>
-        <div >
-            <ul>
-                <li>
-                    <button mat-icon-button>
-                        <mat-icon (click)="displayCartDialog()">shopping_cart</mat-icon>
-                    </button>
-                </li>
-            </ul>
+<div id="headerBandeau" class="headerBandeau">
+        <div class="leftIcons center-vertical">
+            <button mat-icon-button (click)="toggleSideBar()">
+                <mat-icon>menu</mat-icon>
+            </button>
         </div>
-    </mat-toolbar-row>
-</mat-toolbar>
+        <div class="centerDiv center-vertical">
+            <div class="logoDiv center-vertical">
+                <img class="logo" src="assets/images/kayCafetLogo.png" alt="Kay Cafet'" /><span class="headerSpan">Kay Cafet'</span>
+            </div>
+        </div>
+        <div class="rightIconsDiv center-vertical">
+                <ul class="rightIcons">
+                    <li>
+                        <button mat-icon-button>
+                            <mat-icon (click)="displayCartDialog()">shopping_cart</mat-icon>
+                        </button>
+                    </li>
+                </ul>
+        </div>
+</div>

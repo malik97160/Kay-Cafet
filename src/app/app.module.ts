@@ -8,12 +8,14 @@ import { MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule } fr
 import { HomeComponent } from './modules/home/home.component';
 import { SiteModule } from './layouts/site/site.module';
 import { CartComponent } from './modules/cart/cart.component';
+import { LoginComponent } from './modules/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

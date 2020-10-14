@@ -4,6 +4,7 @@ import { AdminComponent } from './layouts/admin/admin.component';
 import { SiteComponent } from './layouts/site/site.component';
 import { DashboadComponent } from './modules/dashboad/dashboad.component';
 import { HomeComponent } from './modules/home/home.component';
+import { LoginComponent } from './modules/login/login.component';
 import { PostsComponent } from './modules/posts/posts.component';
 
 const routes: Routes = [
@@ -24,6 +25,11 @@ const routes: Routes = [
     {path: '', component: DashboadComponent}, 
     {path: 'posts', component: PostsComponent}
 ]
+},
+
+{
+  path: 'login',
+  component: LoginComponent
 }];
 
 @NgModule({

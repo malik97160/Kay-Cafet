@@ -1,0 +1,48 @@
+<div id="loginContainer">
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Crée ton compte</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>ou utilise une addresse email pour l'inscription</span>
+                <input type="text" placeholder="Nom" />
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <button>Inscription</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Connecte toi</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>ou utilise ton compte</span>
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <a href="#">Mot de passe oublié?</a>
+                <button>Connexion</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Content de te revoir!</h1>
+                    <p>Afin de rester en contact avec nous, connecte toi avec tes identifiants s'il te plaît.</p>
+                    <button (click)="removeRightPanelActive()" class="ghost" id="signIn">Connexion</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Salut à toi, Jeune entrepreneur!</h1>
+                    <p>Entre tes identifiants et démarre l'aventure avec nous.</p>
+                    <button (click)="addRightPanelActive()" class="ghost" id="signUp">Inscription</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

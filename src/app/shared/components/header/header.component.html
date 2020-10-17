@@ -1,6 +1,6 @@
 <div id="headerBandeau" class="headerBandeau">
         <div class="leftIcons center-vertical">
-            <button mat-icon-button (click)="toggleSideBar()">
+            <button *ngIf="isAdminPath" class="toggleSideBarButton" mat-icon-button (click)="toggleSideBar()">
                 <mat-icon>menu</mat-icon>
             </button>
         </div>

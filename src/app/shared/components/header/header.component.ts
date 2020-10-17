@@ -9,8 +9,11 @@ import { CartComponent } from 'src/app/modules/cart/cart.component';
 })
 export class HeaderComponent implements OnInit {
 @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
+  isAdminPath: boolean;
 
-  constructor(public dialogService: ConfirmDialogService) { }
+  constructor(public dialogService: ConfirmDialogService/*, private router: Router*/) {
+    this.isAdminPath = false; //this.router.url.includes('admin');
+   }
 
   ngOnInit() {
   }

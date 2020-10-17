@@ -1,4 +1,11 @@
-.center-vertical{
-    display: flex;
-    align-items: center;
+@media all and(max-width: 600px){
+  .isMobileSnitch{
+    display: block;
   }
+}
+
+@media all and(min-width: 601px){
+  .isMobileSnitch{
+    display: none;
+  }
+}

@@ -9,13 +9,14 @@ import { HomeComponent } from './modules/home/home.component';
 import { SiteModule } from './layouts/site/site.module';
 import { CartComponent } from './modules/cart/cart.component';
 import { LoginComponent } from './modules/login/login.component';
-
+import { ValidationComponent } from './modules/validation/validation.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
+    ValidationComponent
   ],
   imports: [
     BrowserModule,

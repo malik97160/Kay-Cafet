@@ -6,6 +6,7 @@ import { DashboadComponent } from './modules/dashboad/dashboad.component';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
 import { PostsComponent } from './modules/posts/posts.component';
+import { ValidationComponent } from './modules/validation/validation.component';
 
 const routes: Routes = [
   //Site routing
@@ -13,7 +14,8 @@ const routes: Routes = [
     path: '',
     component: SiteComponent,
     children: [
-      {path: '', component: HomeComponent, pathMatch: 'full'}
+      {path: '', component: HomeComponent, pathMatch: 'full'},
+      {path: 'validation', component: ValidationComponent}
     ]
   },
 

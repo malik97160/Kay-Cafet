@@ -1,3 +1,39 @@
+@media all and(max-width: 600px){
+    .shoppingCartIcon{
+        font-size: 1.8rem;
+    }
+
+    .rightIconsDiv{
+        width: 19%;
+    }
+
+    .centerDiv{
+        width: 70%;
+    }
+
+    .headerSpan{
+        font-size: 2.2rem;
+    }
+}
+
+@media all and(min-width:601px){
+    .shoppingCartIcon{
+        font-size: 2.5rem;
+    }
+
+    .centerDiv{
+        width: 80%;
+    }
+
+    .rightIconsDiv{
+        width: 9%;
+    }
+
+    .headerSpan{
+        font-size: 2.5rem;;
+    }
+}
+
 ul li {
     list-style: none;
 }
@@ -21,19 +57,15 @@ ul li {
     top: 0;
 }
 
-.headerSpan{
-    font-size: 2.5rem;;
-}
-
-.rightIconsDiv{
-    //background-color: red !important;
-    width: 10%;
-}
-
 .rightIcons{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    padding-left: 0;
+}
+
+.rightIconsDiv{
+    padding-left: 0.3rem;
 }
 
 .leftIcons{
@@ -41,17 +73,8 @@ ul li {
     width: 10%;
 }
 
-.centerDiv{
-    //background-color: green !important;
-    width: 80%;
-}
-
 .shoppingCartButon{
     cursor: pointer;
-}
-
-.shoppingCartIcon{
-    font-size: 2.5rem;
 }
 
 .cartItemCount{

@@ -2,70 +2,24 @@
 <div class="mainDiv" (scroll)="onWindowScroll($event);">
     <div id="categories" class="categoriesDiv">
         <ul class="categories-menu">
-            <li class="foodCategories"><a (click)="scrollTo('formules')">Formules</a></li>
-            <li class="foodCategories"><a (click)="scrollTo('sandwichs')">Sandwichs</a></li>
-            <li class="foodCategories"><a (click)="scrollTo('salades')">Salades</a></li>
-            <li class="foodCategories"><a (click)="scrollTo('boissons')">Boissons</a></li>
-            <li class="foodCategories"><a (click)="scrollTo('desserts')">Desserts</a></li>
+            <li *ngFor="let familyName of familyNames" (click)="scrollTo(familyName)" class="foodCategories"><a class="capitalize">{{familyName}}</a></li>
         </ul>
     </div>
     <div class="menuDiv">
         <div class="inner-container">
-            <div id="formules">
-                <div class="categoryTitle">Formules 6 références</div> <!--dans une autre div pour les ref -->
+            <div *ngFor="let family of productFamilies" id="{{ family.FamilyName }}">
+                <div class="categoryTitle"><span class="capitalize title-bigger">{{ family.FamilyName }}</span><span class="text-underline referenceCount">{{ family.Products.length}} références</span></div>
                 <div class="itemsCategory">
-                    <div class="item">
-                        <div class="itemDescription">Formule végétarienne</div>
-                    </div>
-                    <div class="item">Formule végan</div>
-                    <div class="item">Formule allégée</div>
-                    <div class="item">Formule bon vivant</div>
-                    <div class="item">Formule oasis + sandwich poulet + cookies</div>
-                    <div class="item">Formule Yves Leborgne</div>
-                </div>
-            </div>
-            <div id="sandwichs">
-                <div class="categoryTitle">Sandwichs</div>
-                <div class="itemsCategory">
-                    <div class="item">Sandwich au poulet</div>
-                    <div class="item">Sandwich au jambon frommage</div>
-                    <div class="item">Sandwich au corned beef</div>
-                    <div class="item">Sandwich complet</div>
-                    <div class="item">Sandwich thon mayonnaise</div>
-                    <div class="item">Sandwich merguez</div>
-                </div>
-            </div>
-            <div id="salades">  
-                <div class="categoryTitle">Salades</div>
-                <div class="itemsCategory">
-                    <div class="item">Salade 1</div>
-                    <div class="item">Salade 1</div>
-                    <div class="item">Salade 1</div>
-                    <div class="item">Salade 1</div>
-                    <div class="item">Salade 1</div>
-                    <div class="item">Salade 1</div>
-                </div>
-            </div>
-            <div id="boissons">               
-                <div class="categoryTitle">Boissons</div>
-                <div class="itemsCategory">
-                    <div class="item">Boissons</div>
-                    <div class="item">Boissons</div>
-                    <div class="item">Boissons</div>
-                    <div class="item">Boissons</div>
-                    <div class="item">Boissons</div>
-                    <div class="item">Boissons</div>
-                </div>
-            </div>
-            <div id="desserts">
-                <div class="categoryTitle">Desserts</div>
-                    <div class="itemsCategory">
-                        <div class="item">Desserts</div>
-                        <div class="item">Desserts</div>
-                        <div class="item">Desserts</div>
-                        <div class="item">Desserts</div>
-                        <div class="item">Desserts</div>
-                        <div class="item">Desserts</div>
+                    <div *ngFor="let product of family.Products" class="item">
+                        <div class="itemPhoto"></div>
+                        <div class="itemDescriptionBloc">
+                            <div class="itemDescription text-title-regular capitalize">{{ product.Name}}</div>
+                            <div class="itemDescriptionLabel text-underline capitalize">{{ product.Description }}</div>
+                            <div class="itemPriceBlock">
+                                <div class="itemPrice">{{ product.UnitPrice }}</div>
+                                <button class="addItemButton">Ajouter</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

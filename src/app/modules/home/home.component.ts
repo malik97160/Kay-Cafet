@@ -1,5 +1,7 @@
 import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { ProductFamily } from 'src/app/Interfaces/product-family';
+import { ProductFamilies } from './mock-product-family';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +10,14 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
+  productFamilies: ProductFamily[];
+  familyNames: string[];
 
   constructor(private viewPortScroller : ViewportScroller) { }
 
   ngOnInit(): void {
+    this.productFamilies = ProductFamilies;
+    this.familyNames = this.productFamilies.map((e) => e.FamilyName);
   }
 
   @HostListener('window:scroll', ['$event'])

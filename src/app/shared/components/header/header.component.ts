@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   isAdminPath: boolean;
 
   constructor(public dialogService: ConfirmDialogService/*, private router: Router*/) {
-    this.isAdminPath = false; //this.router.url.includes('admin');
+    this.isAdminPath = true; //this.router.url.includes('/admin/');
    }
 
   ngOnInit() {

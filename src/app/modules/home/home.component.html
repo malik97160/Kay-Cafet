@@ -11,12 +11,12 @@
                 <div class="categoryTitle"><span class="capitalize title-bigger">{{ family.FamilyName }}</span><span class="text-underline referenceCount">{{ family.Products.length}} références</span></div>
                 <div class="itemsCategory">
                     <div *ngFor="let product of family.Products" class="item">
-                        <div class="itemPhoto"></div>
-                        <div class="itemDescriptionBloc">
+                        <div *ngIf="product.Photo" class="itemPhoto center-vertical"><img src="{{product.Photo}}" alt="{{product.Name}}"></div>
+                        <div class="itemDescriptionBloc fullwidth">
                             <div class="itemDescription text-title-regular capitalize">{{ product.Name}}</div>
                             <div class="itemDescriptionLabel text-underline capitalize">{{ product.Description }}</div>
                             <div class="itemPriceBlock">
-                                <div class="itemPrice">{{ product.UnitPrice }}</div>
+                                <div class="itemPrice">{{ product.UnitPrice | currency:currency }}</div>
                                 <button class="addItemButton">Ajouter</button>
                             </div>
                         </div>

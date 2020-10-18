@@ -17,6 +17,14 @@
     .itemDescriptionLabel{
         line-height: 1rem;
     }
+
+    .inner-container{
+        width: 95%;
+    }
+
+    .item{
+        width: 95%;
+    }
 }
 
 @media all and(min-width:501px) and(max-width:654px){
@@ -35,6 +43,14 @@
     .referenceCount{
         font-size: 1rem;
     }
+
+    .inner-container{
+        width: 60%;
+    }
+    
+    .item{
+        width: 22rem;
+    }
 }
 
 @media all and(min-width:655px){
@@ -44,6 +60,15 @@
 
     .itemDescriptionLabel{
         line-height: 1.2rem;
+    }
+
+    .inner-container{
+        width: 60%;
+    }
+
+    .item{
+        width: 22rem;
+        margin-left: 0.6rem;
     }
 }
 
@@ -82,10 +107,6 @@
     list-style-type: none;
     margin-top: 2rem;
  }
-
-.inner-container{
-    width: 60%;
-}
 
 .foodCategories{
     cursor: pointer;
@@ -138,18 +159,17 @@
 .itemsCategory{
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
     margin-top: 0.5rem;
 }
 
 .item{
-    width: 22rem;
     color: #444;
     background-color: white; //rgb(235, 228, 213);
     height: 8rem;
     margin-top: 0.5rem;
     border-radius: 0.4rem;
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,.12);;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.12);
+    display: flex;
 }
 
 .categoryTitle{
@@ -170,6 +190,7 @@ img{
     width: 100%;
     border-bottom: 1px solid #ececec;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.02);
+    z-index: 1;
 }
 
 .referenceCount{
@@ -228,4 +249,13 @@ img{
     -webkit-box-orient: vertical;
     margin-left: 0.4rem;
     font-size:0.8rem !important;
+}
+
+.itemPhoto{
+    max-width: 30%;
+    padding-left: 0.4rem;
+}
+
+.itemPhoto > img{
+    border-radius: 8px;
 }

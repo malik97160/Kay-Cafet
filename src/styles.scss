@@ -37,3 +37,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .capitalize::first-letter{
   text-transform: uppercase;
 }
+
+.fullwidth{
+  width: 100%;
+}

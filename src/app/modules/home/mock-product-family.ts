@@ -2,7 +2,7 @@ import { ProductFamily } from 'src/app/Interfaces/product-family';
 import { Product } from 'src/app/Interfaces/product';
 
 const formuleProducts: Product[] = [
-    { Id : "1",Name : "formule végétarienne", Description : "formule composée d'un sandwich végétarien ainsi que d'une boisson.", UnitPrice : 9},
+    { Id : "1",Name : "formule végétarienne", Description : "formule composée d'un sandwich végétarien ainsi que d'une boisson.", UnitPrice : 9, Photo: "https://d359hnfgsmn1y2.cloudfront.net/upload/product_foods/media/65101/web/1084ca50eec2dca8c20c965d59c3fbed38d5b0730f4d2a786a55df9750e164ec.png"},
     { Id : "2",Name : "formule végan", Description : "fjsqmldkfjqsoifner azfjzmlefjzhamlfihazlf zlefjzfj", UnitPrice : 7.50},
     { Id : "3",Name : "formule allégée", Description : "formule super", UnitPrice : 6.6},
     { Id : "4",Name : "formule bon vivant", Description : "bon vivant", UnitPrice : 5.9},
@@ -27,7 +27,7 @@ const saladProducts: Product[] = [
     { Id : "6",Name : "salade Yves Leborgne", Description : "", UnitPrice : 8}
 ];
 const drinkProducts: Product[] = [
-    { Id : "1",Name : "coca cola", Description : "Boisson rafraîchissante aux extraits végétaux.", UnitPrice : 1},
+    { Id : "1",Name : "coca cola", Description : "Boisson rafraîchissante aux extraits végétaux.", UnitPrice : 1, Photo: "assets/images/cocaCola.jpg"},
     { Id : "2",Name : "oasis tropical", Description : "fjsqmldkfjqsoifner azfjzmlefjzhamlfihazlf zlefjzfj", UnitPrice : 1},
     { Id : "3",Name : "orangina", Description : "formule super", UnitPrice : 1},
     { Id : "4",Name : "perrier", Description : "bon vivant", UnitPrice : 1},

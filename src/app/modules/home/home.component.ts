@@ -12,12 +12,14 @@ import { ProductFamilies } from './mock-product-family';
 export class HomeComponent implements OnInit {
   productFamilies: ProductFamily[];
   familyNames: string[];
+  currency: string;
 
   constructor(private viewPortScroller : ViewportScroller) { }
 
   ngOnInit(): void {
     this.productFamilies = ProductFamilies;
     this.familyNames = this.productFamilies.map((e) => e.FamilyName);
+    this.currency = 'EUR';
   }
 
   @HostListener('window:scroll', ['$event'])

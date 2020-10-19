@@ -41,3 +41,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .fullwidth{
   width: 100%;
 }
+
+.chart-dialog > mat-dialog-container{
+  background-color: #f9f9f9;
+}
+
+.dark-title{
+  font-family: Titillium Web,AvenirNext,Avenir,Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    color: #444;
+}
+
+.center{
+  text-align: center;
+}

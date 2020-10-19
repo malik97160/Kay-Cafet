@@ -53,3 +53,11 @@
 .mat-dialog-container{
     position: relative;
 }
+
+.vertical-middle{
+    position: absolute;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

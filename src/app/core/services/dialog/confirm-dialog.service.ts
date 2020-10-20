@@ -21,7 +21,7 @@ export class ConfirmDialogService {
     });
   }
 
-  openDialog<T>(component:ComponentType<T>, width:string, height:string, className:string, disableClose?:boolean){
+  openDialog<T>(component:ComponentType<T>, width:string, height:string, className:string, disableClose?:boolean, right?: number){
     let dialogRef = this.dialog.open(component, {
       width: width,
       height: height,
@@ -29,8 +29,9 @@ export class ConfirmDialogService {
       disableClose: disableClose ? disableClose : false
     });
 
-    //dialogRef.componentInstance.htmlContent = '<div>coucou</div>'; //this.dom.sanitize(SecurityContext.HTML, this.htmlContent);
-    dialogRef.updatePosition({ right: '0' });
+    if(right != undefined){
+      dialogRef.updatePosition({ right: right.toString() });
+    }
     return dialogRef;
     
   }

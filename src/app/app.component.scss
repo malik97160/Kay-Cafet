@@ -1,11 +1,11 @@
 @media all and(max-width: 600px){
-  .isMobileSnitch{
+  #isMobileSnitch{
     display: block;
   }
 }
 
 @media all and(min-width: 601px){
-  .isMobileSnitch{
+  #isMobileSnitch{
     display: none;
   }
 }

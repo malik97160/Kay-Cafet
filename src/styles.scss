@@ -4,6 +4,21 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+@media all and(max-width: 600px){
+  .chart-dialog{
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  #confirmOrder{
+    width: 90% !important;
+  }
+}
+
+.chart-dialog{
+  position: relative !important;
+}
+
 .center-vertical{
     display: flex;
     align-items: center;
@@ -42,10 +57,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 100%;
 }
 
-.chart-dialog > mat-dialog-container{
-  background-color: #f9f9f9;
-}
-
 .dark-title{
   font-family: Titillium Web,AvenirNext,Avenir,Helvetica,Arial,sans-serif;
     font-size: 20px;
@@ -54,4 +65,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .center{
   text-align: center;
+}
+
+.chart-dialog > mat-dialog-container{
+  background-color: #f9f9f9;
+}
+
+.closeDialogButton{
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline:0;
+}
+
+.closeDialogButton > #close-icon{
+  font-size: 2.8rem;
+  color: grey;
 }

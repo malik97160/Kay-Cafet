@@ -23,6 +23,6 @@ export class HeaderComponent implements OnInit {
   }
 
   displayCartDialog(){
-    this.dialogService.openDialog(CartComponent, '28rem', '100%', 'chart-dialog');
+    this.dialogService.openDialog(CartComponent, '28rem', '100%', 'chart-dialog', null, 0);
   }
 }

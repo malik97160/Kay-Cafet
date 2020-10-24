@@ -1,5 +1,6 @@
 import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Product } from 'src/app/Interfaces/product';
 import { ProductFamily } from 'src/app/Interfaces/product-family';
 import { ProductFamilies } from './mock-product-family';
 
@@ -36,13 +37,21 @@ export class HomeComponent implements OnInit {
     }
  }
 
- scrollTo(anchorName: string){
-  let headerHeight = document.getElementById('headerBandeau').clientHeight;
-  let categoriesHeight = document.getElementById("categories").clientHeight; 
-  let stickyHeight = headerHeight + categoriesHeight;
-  let anchor = document.getElementById(anchorName);
-  let a = anchor.getBoundingClientRect();
-  let position = window.pageYOffset > stickyHeight ? a.top + window.scrollY - stickyHeight : a.top + window.scrollY - 2*stickyHeight; 
-  this.viewPortScroller.scrollToPosition([a.left, position]);
- }
+  scrollTo(anchorName: string){
+    let headerHeight = document.getElementById('headerBandeau').clientHeight;
+    let categoriesHeight = document.getElementById("categories").clientHeight; 
+    let stickyHeight = headerHeight + categoriesHeight;
+    let anchor = document.getElementById(anchorName);
+    let a = anchor.getBoundingClientRect();
+    let position = window.pageYOffset > stickyHeight ? a.top + window.scrollY - stickyHeight : a.top + window.scrollY - 2*stickyHeight; 
+    this.viewPortScroller.scrollToPosition([a.left, position]);
+  }
+
+  addProduct(product : Product){
+
+  }
+
+  removeProduct(product : Product){
+    
+  }
 }

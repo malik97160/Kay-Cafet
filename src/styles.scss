@@ -69,6 +69,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .chart-dialog > mat-dialog-container{
   background-color: #f9f9f9;
+  position: relative;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .closeDialogButton{
@@ -81,4 +84,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .closeDialogButton > #close-icon{
   font-size: 2.8rem;
   color: grey;
+}
+
+.cartItemcount{
+  width: 1.5rem;
+  text-align: center;
+  align-self: center;
+}
+
+.buttonCart{
+  border: 2px solid #d5d5d5;
+  border-radius: 4px;
+  width: 38px;
+  height: 32px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #fff;
 }

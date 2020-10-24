@@ -10,18 +10,24 @@
             <img src="/assets/images/watermelon.gif" alt="panier vide">
             <div class="emptyCartDiv">
                 <div class="dark-title center">Votre panier est vide</div>
-                <div class="emptyCartDescription center">Découvrez notre carte interactive et visuelle</div>
+                <div class="emptyCartDescription center">Veuillez sélectionner au moins un produit.</div>
             </div>
         </div>
         <div *ngIf="hasCartItems" class="itemRowsContainer">
-            <div *ngFor="let item of cartItems" class="item">
-                <div *ngIf="item.Product.Photo" class="itemPhoto center-vertical"><img src="{{item.Product.Photo}}" alt="{{item.Product.Name}}"></div>
-                <div class="itemDescriptionBloc fullwidth">
-                    <div class="itemDescription text-title-regular capitalize">{{ item.Product.Name}}</div>
-                    <div class="itemDescriptionLabel text-underline capitalize">{{ item.Product.Description }}</div>
-                    <div class="itemPriceBlock">
-                        <div class="itemPrice">{{ item.Product.UnitPrice | currency:currency }}</div>
-                        <button class="addItemButton">Ajouter</button>
+            <div *ngFor="let item of cartItems" class="basket-product">
+                <div class="basketContainer">
+                    <div *ngIf="1== 2 && item.Product.Photo" class="itemPhoto center-vertical"><img src="{{item.Product.Photo}}" alt="{{item.Product.Name}}"></div>
+                    <div class="itemDescriptionBloc"> <!--fullwidth-->
+                        <div class="itemDescription text-title-regular capitalize">{{ item.Product.Name}}</div>
+                        <div class="itemDescriptionLabel text-underline capitalize">{{ item.Product.Description }}</div>
+                        <div class="itemPriceBlock">
+                            <div class="itemPrice">{{ item.Product.UnitPrice * item.Quantity | currency: 'EUR' }}</div>
+                            <div class="cartButton">
+                                <button id="decrementCart" class="buttonCart" (click)="decrementItemCounter(item)" ><mat-icon>remove</mat-icon></button>
+                                <div class="cartItemcount" [(ngModel)]="item.Quantity" >{{ item.Quantity}}</div>
+                                <button id="incrementCart" class="buttonCart" (click)="incrementItemCounter(item)" ><mat-icon>add</mat-icon></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,7 +36,7 @@
     <div *ngIf="hasCartItems" class="cartActions" mat-dialog-actions>
         <div class="totalAmountDiv">
             <div class="totalAmountText">Montant total</div>
-            <div class="totalAmountPrice bold">21.00 £</div>
+            <div class="totalAmountPrice bold"> {{ totalPrice | currency: 'EUR' }}</div>
         </div>
         <button id="confirmOrder">Passer la commande</button>
     </div>

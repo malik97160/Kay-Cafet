@@ -17,24 +17,16 @@
                             <div class="itemDescriptionLabel text-underline capitalize">{{ product.Description }}</div>
                             <div class="itemPriceBlock">
                                 <div class="itemPrice">{{ product.UnitPrice | currency:currency }}</div>
-                                <button class="addItemButton">Ajouter</button>
+                                <div class="cartButton">
+                                    <button id="decrementCart" class="buttonCart" (click)="removeProduct(item)" ><mat-icon>remove</mat-icon></button>
+                                    <div class="cartItemcount">5</div>
+                                    <button id="incrementCart" class="buttonCart" (click)="addProduct(item)" ><mat-icon>add</mat-icon></button>
+                                </div>
+                                <button *ngIf="1 == 2" (click)="addProduct(product)" class="addItemButton">Ajouter</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <div class="cart">
-            <div class="cartTitle">Ma commande</div>
-            <!-- <mat-divider></mat-divider> -->
-            <div class="cartItem"></div>
-            <div class="cartItem"></div>
-            <div class="cartItem"></div>
-            <div class="cartItem"></div>
-            <div class="cartItem"></div>
-            <!-- <mat-divider></mat-divider> -->
-            <div class="orderDiv">
-                <div class="totalAmount">30£</div>
-                <button mat-button color="primary"></button>
             </div>
         </div>
     </div>

@@ -219,6 +219,7 @@ img{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 0.4rem;
 }
 
 .itemDescriptionBloc{
@@ -230,7 +231,7 @@ img{
 
 .itemPrice{
     align-self: flex-end;
-    margin: 0.4rem 0.4rem 0.4rem 0.4rem;
+    margin-left: 0.4rem;
 }
 
 .itemDescription{
@@ -258,4 +259,14 @@ img{
 
 .itemPhoto > img{
     border-radius: 8px;
+}
+
+.cartButton{
+    display: flex;
+    margin-right: 1rem;
+}
+
+.buttonCart{
+    background-color: rgb(74, 74, 74);
+    color: white;
 }

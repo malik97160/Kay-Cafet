@@ -118,3 +118,24 @@
 .basket-container{
     display: flex;
 }
+
+.basketContainer{
+    display: flex;
+    width: 100%;
+}
+
+.itemPrice{
+    width: 13%;
+    align-self: center;
+}
+
+.itemDescriptionBloc{
+    width: 85%;
+}
+.itemDescriptionBloc > div:not(:last-child) {
+    margin-bottom: 0.4rem;
+}
+
+.buttonCart > mat-icon {
+    color: #888;
+}

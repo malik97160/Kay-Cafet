@@ -12,7 +12,7 @@ const formuleProducts: Product[] = [
 
 const sandwichProducts: Product[] = [
     { Id : "1",Name : "sandwich au poulet", Description : "sandwich au poulet.", UnitPrice : 9},
-    { Id : "2",Name : "sandwich au jambon frommage", Description : "sandwich au jambon de bayonne et au fromage de brebis", UnitPrice : 7.50},
+    { Id : "2",Name : "sandwich au jambon fromage", Description : "sandwich au jambon de bayonne et au fromage de brebis", UnitPrice : 7.50},
     { Id : "3",Name : "sandwich au corned beef", Description : "", UnitPrice : 6.6},
     { Id : "4",Name : "sandwich complet", Description : "sandwich au jambon fromage et saucisses", UnitPrice : 5.9},
     { Id : "5",Name : "sandwich thon mayonnaise", Description : "", UnitPrice : 10.5},

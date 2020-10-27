@@ -10,4 +10,11 @@ export const CartItems : ICartItem[] = [
     {Product: product2, Quantity: 1},
     {Product: product3, Quantity: 2},
     {Product: product4, Quantity: 1},
+    {Product: product4, Quantity: 1},
+    {Product: product4, Quantity: 1},
+    {Product: product4, Quantity: 1},
+    {Product: product4, Quantity: 1},
+    {Product: product4, Quantity: 1},
+    {Product: product4, Quantity: 1},
+    {Product: product4, Quantity: 1}
 ]

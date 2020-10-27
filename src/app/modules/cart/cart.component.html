@@ -16,10 +16,10 @@
         <div *ngIf="hasCartItems" class="itemRowsContainer">
             <div *ngFor="let item of cartItems" class="basket-product">
                 <div class="basketContainer">
-                    <div *ngIf="1== 2 && item.Product.Photo" class="itemPhoto center-vertical"><img src="{{item.Product.Photo}}" alt="{{item.Product.Name}}"></div>
+                    <!-- <div *ngIf="item.Product.Photo" class="itemPhoto center-vertical"><img src="{{item.Product.Photo}}" alt="{{item.Product.Name}}"></div> -->
                     <div class="itemDescriptionBloc"> <!--fullwidth-->
-                        <div class="itemDescription text-title-regular capitalize">{{ item.Product.Name}}</div>
-                        <div class="itemDescriptionLabel text-underline capitalize">{{ item.Product.Description }}</div>
+                        <div class="itemDescription text-title-regular capitalize">{{ item.Name}}</div>
+                        <div class="itemDescriptionLabel text-underline capitalize">{{ item.Description }}</div>
                         <div class="itemPriceBlock">
                             <div class="cartButton">
                                 <button id="decrementCart" class="buttonCart" (click)="decrementItemCounter(item)" ><mat-icon>remove</mat-icon></button>
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="itemPrice bold">{{ item.Product.UnitPrice * item.Quantity | currency: 'EUR' }}</div>
+                    <div class="itemPrice bold">{{ item.UnitPrice * item.Quantity | currency: 'EUR' }}</div>
                 </div>
             </div>
         </div>

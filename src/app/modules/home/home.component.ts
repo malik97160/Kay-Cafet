@@ -1,5 +1,7 @@
 import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CartService } from 'src/app/core/services/cart/cart.service';
 import { Product } from 'src/app/Interfaces/product';
 import { ProductFamily } from 'src/app/Interfaces/product-family';
 import { ProductFamilies } from './mock-product-family';
@@ -14,8 +16,9 @@ export class HomeComponent implements OnInit {
   productFamilies: ProductFamily[];
   familyNames: string[];
   currency: string;
+  basketItemAddedSubscription: Subscription;
 
-  constructor(private viewPortScroller : ViewportScroller) { }
+  constructor(private viewPortScroller : ViewportScroller, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.productFamilies = ProductFamilies;
@@ -47,11 +50,28 @@ export class HomeComponent implements OnInit {
     this.viewPortScroller.scrollToPosition([a.left, position]);
   }
 
-  addProduct(product : Product){
-
+  incrementProduct(product : Product){
+    if(product.Quantity == null){
+      product.Quantity = 0;
+    }
+    product.Quantity += 1;
+    this.cartService.addProductToBasket(product);
+    /*this.basketItemAddedSubscription = this.basketEvents.addItemToBasket$.subscribe(
+      item => {
+          this.cartService.addItemToBasket(item).subscribe(res => {
+              this.service.getBasket().subscribe(basket => {
+                  if (basket)
+                      this.badge = basket.items.length;
+              });
+          });
+      });*/
   }
 
-  removeProduct(product : Product){
-    
+  decrementProduct(product : Product){
+    product.Quantity -= 1;
+  }
+
+  addProduct(product: Product){
+    product.Quantity = 1;
   }
 }

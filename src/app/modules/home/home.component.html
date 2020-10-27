@@ -17,12 +17,12 @@
                             <div class="itemDescriptionLabel text-underline capitalize">{{ product.Description }}</div>
                             <div class="itemPriceBlock">
                                 <div class="itemPrice">{{ product.UnitPrice | currency:currency }}</div>
-                                <div class="cartButton">
-                                    <button id="decrementCart" class="buttonCart" (click)="removeProduct(item)" ><mat-icon>remove</mat-icon></button>
-                                    <div class="cartItemcount">5</div>
-                                    <button id="incrementCart" class="buttonCart" (click)="addProduct(item)" ><mat-icon>add</mat-icon></button>
+                                <div *ngIf="product.Quantity > 0" class="cartButton">
+                                    <button id="decrementCart" class="buttonCart" (click)="decrementProduct(product)" ><mat-icon>remove</mat-icon></button>
+                                    <div class="cartItemcount">{{  product.Quantity}}</div>
+                                    <button id="incrementCart" class="buttonCart" (click)="incrementProduct(product)" ><mat-icon>add</mat-icon></button>
                                 </div>
-                                <button *ngIf="1 == 2" (click)="addProduct(product)" class="addItemButton">Ajouter</button>
+                                <button *ngIf="!product.Quantity || product.Quantity == 0" (click)="addProduct(product)" class="addItemButton">Ajouter</button>
                             </div>
                         </div>
                     </div>

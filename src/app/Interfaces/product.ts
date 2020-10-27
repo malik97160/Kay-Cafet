@@ -5,4 +5,5 @@ export interface Product {
     UnitPrice: number;
     Photo?: string;
     Currency?: string;
+    Quantity?: number;
 }

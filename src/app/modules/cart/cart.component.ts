@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { ICartItem } from 'src/app/Interfaces/cart-item';
+import { Product } from 'src/app/Interfaces/product';
 import { CartItems } from './mock-cart-items';
 
 @Component({
@@ -28,12 +28,12 @@ export class CartComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  incrementItemCounter(item: ICartItem){
+  incrementItemCounter(item: Product){
     item.Quantity +=1;
     this.calculTotalPrice();
   }
 
-  decrementItemCounter(item: ICartItem){
+  decrementItemCounter(item: Product){
     item.Quantity-=1;
     if(item.Quantity <= 0){
       item.Quantity = 0;
@@ -46,7 +46,7 @@ export class CartComponent implements OnInit {
   private calculTotalPrice(){
     this.totalPrice = 0;
     this.cartItems.forEach(item => {
-        this.totalPrice += item.Product.UnitPrice * item.Quantity;
+        this.totalPrice += item.UnitPrice * item.Quantity;
     });
   }
 }

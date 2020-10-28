@@ -23,7 +23,21 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.productFamilies = ProductFamilies;
     this.familyNames = this.productFamilies.map((e) => e.FamilyName);
+    this.setProductQuantityFromBasket();
     this.currency = 'EUR';
+  }
+
+  private setProductQuantityFromBasket() {
+    let basketProducts = this.cartService.getProductsFromBasket();
+    basketProducts.forEach(basketProduct => {
+      this.productFamilies.forEach(family =>{
+        let index = family.Products.findIndex(prd => prd.Id == basketProduct.Id);
+        if (index !== -1){
+          family.Products[index].Quantity = basketProduct.Quantity;
+          return;
+        }
+      });
+    });
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -55,7 +69,7 @@ export class HomeComponent implements OnInit {
       product.Quantity = 0;
     }
     product.Quantity += 1;
-    this.cartService.addProductToBasket(product);
+    this.cartService.updateProductInBasket(product);
     /*this.basketItemAddedSubscription = this.basketEvents.addItemToBasket$.subscribe(
       item => {
           this.cartService.addItemToBasket(item).subscribe(res => {
@@ -69,9 +83,14 @@ export class HomeComponent implements OnInit {
 
   decrementProduct(product : Product){
     product.Quantity -= 1;
+    if(product.Quantity > 0)
+      this.cartService.updateProductInBasket(product);
+    else
+      this.cartService.removeProductInBasket(product);
   }
 
   addProduct(product: Product){
     product.Quantity = 1;
+    this.cartService.addProductToBasket(product);
   }
 }

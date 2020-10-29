@@ -29,15 +29,18 @@ export class HomeComponent implements OnInit {
 
   private setProductQuantityFromBasket() {
     let basketProducts = this.cartService.getProductsFromBasket();
-    basketProducts.forEach(basketProduct => {
-      this.productFamilies.forEach(family =>{
-        let index = family.Products.findIndex(prd => prd.Id == basketProduct.Id);
-        if (index !== -1){
-          family.Products[index].Quantity = basketProduct.Quantity;
-          return;
+    for(let i = 0; i < basketProducts.length; i++){
+      let basketProduct = basketProducts[i];
+      basketLoop:
+        for(let j = 0; j <this.productFamilies.length; j++){
+          let family = this.productFamilies[j];
+          let index = family.Products.findIndex(prd => prd.Id == basketProduct.Id);
+          if (index !== -1){
+            family.Products[index].Quantity = basketProduct.Quantity;
+            break basketLoop;
+          }
         }
-      });
-    });
+    }
   }
 
   @HostListener('window:scroll', ['$event'])

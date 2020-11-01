@@ -1,0 +1,28 @@
+<div class="middleContainer" [ngClass]="{'flex': !hasCartItems}">
+    <div *ngIf="!hasCartItems" class="vertical-middle">
+        <img src="/assets/images/watermelon.gif" alt="panier vide">
+        <div class="emptyCartDiv">
+            <div class="dark-title center">Votre panier est vide</div>
+            <div class="emptyCartDescription center">Veuillez sélectionner au moins un produit.</div>
+        </div>
+    </div>
+    <div *ngIf="hasCartItems" class="itemRowsContainer">
+        <div *ngFor="let item of cartItems" class="basket-product">
+            <div class="basketContainer">
+                <!-- <div *ngIf="item.Product.Photo" class="itemPhoto center-vertical"><img src="{{item.Product.Photo}}" alt="{{item.Product.Name}}"></div> -->
+                <div class="itemDescriptionBloc"> <!--fullwidth-->
+                    <div class="itemDescription text-title-regular capitalize">{{ item.Name}} <span *ngIf="!isFromBasket">x{{item.Quantity}}</span></div>
+                    <div class="itemDescriptionLabel text-underline capitalize">{{ item.Description }}</div>
+                    <div *ngIf="isFromBasket" class="itemPriceBlock">
+                        <div class="cartButton">
+                            <button id="decrementCart" class="buttonCart" (click)="decrementItemCounter(item)" ><mat-icon>remove</mat-icon></button>
+                            <div class="cartItemcount" [(ngModel)]="item.Quantity" >{{ item.Quantity}}</div>
+                            <button id="incrementCart" class="buttonCart" (click)="incrementItemCounter(item)" ><mat-icon>add</mat-icon></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="itemPrice bold">{{ item.UnitPrice * item.Quantity | currency: 'EUR' }}</div>
+            </div>
+        </div>
+    </div>
+</div>

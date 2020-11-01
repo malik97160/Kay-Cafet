@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,13 +10,19 @@ import { SiteModule } from './layouts/site/site.module';
 import { CartComponent } from './modules/cart/cart.component';
 import { LoginComponent } from './modules/login/login.component';
 import { ValidationComponent } from './modules/validation/validation.component';
+import { registerLocaleData } from '@angular/common';
+import localeFR from '@angular/common/locales/fr';
+import { CartRowsComponent } from './modules/cart/cart-rows/cart-rows.component';
+
+registerLocaleData(localeFR);
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CartComponent,
     LoginComponent,
-    ValidationComponent
+    ValidationComponent,
+    CartRowsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,10 @@ import { ValidationComponent } from './modules/validation/validation.component';
     MatSelectModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'fr'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,34 +5,7 @@
             <mat-icon id="close-icon">close</mat-icon>
         </button>
     </div>
-    <div class="middleContainer">
-        <div *ngIf="!hasCartItems" class="vertical-middle">
-            <img src="/assets/images/watermelon.gif" alt="panier vide">
-            <div class="emptyCartDiv">
-                <div class="dark-title center">Votre panier est vide</div>
-                <div class="emptyCartDescription center">Veuillez sélectionner au moins un produit.</div>
-            </div>
-        </div>
-        <div *ngIf="hasCartItems" class="itemRowsContainer">
-            <div *ngFor="let item of cartItems" class="basket-product">
-                <div class="basketContainer">
-                    <!-- <div *ngIf="item.Product.Photo" class="itemPhoto center-vertical"><img src="{{item.Product.Photo}}" alt="{{item.Product.Name}}"></div> -->
-                    <div class="itemDescriptionBloc"> <!--fullwidth-->
-                        <div class="itemDescription text-title-regular capitalize">{{ item.Name}}</div>
-                        <div class="itemDescriptionLabel text-underline capitalize">{{ item.Description }}</div>
-                        <div class="itemPriceBlock">
-                            <div class="cartButton">
-                                <button id="decrementCart" class="buttonCart" (click)="decrementItemCounter(item)" ><mat-icon>remove</mat-icon></button>
-                                <div class="cartItemcount" [(ngModel)]="item.Quantity" >{{ item.Quantity}}</div>
-                                <button id="incrementCart" class="buttonCart" (click)="incrementItemCounter(item)" ><mat-icon>add</mat-icon></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="itemPrice bold">{{ item.UnitPrice * item.Quantity | currency: 'EUR' }}</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-cart-rows (hasCartItemEvent)="setHasCartItems($event)" (totalPriceEvent)="setTotalPrice($event)" [isFromBasket]="true"></app-cart-rows>
     <div *ngIf="hasCartItems" class="cartActions" mat-dialog-actions>
         <div class="totalAmountDiv">
             <div class="totalAmountText">Montant total</div>

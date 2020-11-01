@@ -10,15 +10,13 @@ import { SiteModule } from './layouts/site/site.module';
 import { CartComponent } from './modules/cart/cart.component';
 import { LoginComponent } from './modules/login/login.component';
 import { ValidationComponent } from './modules/validation/validation.component';
-import { CartStatusComponent } from './modules/cart-status/cart-status.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CartComponent,
     LoginComponent,
-    ValidationComponent,
-    CartStatusComponent
+    ValidationComponent
   ],
   imports: [
     BrowserModule,

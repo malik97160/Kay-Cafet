@@ -1,0 +1,4 @@
+<button mat-icon-button>
+    <span *ngIf="basketItemCount > 0" class="cartItemCount">{{basketItemCount}}</span>
+    <mat-icon class="shoppingCartIcon" (click)="displayCartDialog()">shopping_cart</mat-icon>
+</button>

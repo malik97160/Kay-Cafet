@@ -1,0 +1,15 @@
+@media all and(max-width: 600px){
+    .shoppingCartIcon{
+        font-size: 1.8rem;
+    }
+}
+
+@media all and(min-width:601px){
+    .shoppingCartIcon{
+        font-size: 2.5rem;
+    }
+}
+
+.cartItemCount{
+    font-size: 1rem;
+}

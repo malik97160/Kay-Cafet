@@ -73,15 +73,6 @@ export class HomeComponent implements OnInit {
     }
     product.Quantity += 1;
     this.cartService.updateProductInBasket(product);
-    /*this.basketItemAddedSubscription = this.basketEvents.addItemToBasket$.subscribe(
-      item => {
-          this.cartService.addItemToBasket(item).subscribe(res => {
-              this.service.getBasket().subscribe(basket => {
-                  if (basket)
-                      this.badge = basket.items.length;
-              });
-          });
-      });*/
   }
 
   decrementProduct(product : Product){
@@ -95,5 +86,9 @@ export class HomeComponent implements OnInit {
   addProduct(product: Product){
     product.Quantity = 1;
     this.cartService.addProductToBasket(product);
+  }
+
+  dropBasket(){
+    this.cartService.dropBasket();
   }
 }

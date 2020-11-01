@@ -25,6 +25,6 @@ export class StorageService {
    }
 
    public clear(key: string){
-     this.storage.remove(key);
+     this.storage.removeItem(key);
    }
 }

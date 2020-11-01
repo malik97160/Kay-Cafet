@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { CartService } from 'src/app/core/services/cart/cart.service';
 import { Product } from 'src/app/Interfaces/product';
-import { CartItems } from './mock-cart-items';
 
 @Component({
   selector: 'app-cart',
@@ -12,10 +12,10 @@ export class CartComponent implements OnInit {
   hasCartItems: boolean; 
   cartItems: any;
   totalPrice: number;
-  constructor(public dialogRef: MatDialogRef<CartComponent>) { }
+  constructor(public dialogRef: MatDialogRef<CartComponent>, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartItems = CartItems
+    this.cartItems = this.cartService.getProductsFromBasket();
     this.setHasCartItem();
     this.calculTotalPrice();
   }

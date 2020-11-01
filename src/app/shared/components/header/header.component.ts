@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ConfirmDialogService } from 'src/app/core/services/dialog/confirm-dialog.service';
+import { Router }                       from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +11,8 @@ export class HeaderComponent implements OnInit {
 @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   isAdminPath: boolean;
 
-  constructor(public dialogService: ConfirmDialogService/*, private router: Router*/) {
-    this.isAdminPath = true; //this.router.url.includes('/admin/');
+  constructor(public dialogService: ConfirmDialogService, private _router: Router) {
+    this.isAdminPath = this._router.url.includes('/admin');
    }
 
   ngOnInit() {

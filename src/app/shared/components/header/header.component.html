@@ -12,7 +12,7 @@
         <div class="rightIconsDiv center-vertical">
                 <ul class="rightIcons">
                     <li>
-                        <app-cart-status></app-cart-status>
+                        <app-cart-status *ngIf="!isAdminPath"></app-cart-status>
                     </li>
                 </ul>
         </div>

@@ -10,7 +10,7 @@ export class CartService {
   private _cartKey: string = 'cartProducts';
   //observable that is fired when the basket is dropped
   private basketDropedSource = new Subject();
-  private basketChangedSource = new Subject();
+  private basketChangedSource = new Subject<Product>();
   basketDroped$ = this.basketDropedSource.asObservable();
   basketChanged$= this.basketChangedSource.asObservable();
 
@@ -24,7 +24,7 @@ export class CartService {
       throw new Error('products already in basket');  
     }
     this.storageService.store(this._cartKey, products);
-    this.basketChangedSource.next();
+    this.basketChangedSource.next(item);
   }
   
   public getProductsFromBasket(): Product[] {

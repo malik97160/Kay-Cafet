@@ -38,6 +38,6 @@
             <div class="totalAmountText">Montant total</div>
             <div class="totalAmountPrice bold"> {{ totalPrice | currency: 'EUR' }}</div>
         </div>
-        <button id="confirmOrder">Passer la commande</button>
+        <button (click)="confirmOrder()" id="confirmOrder">Passer la commande</button>
     </div>
 </div>

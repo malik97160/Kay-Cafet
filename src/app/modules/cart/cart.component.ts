@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/core/services/cart/cart.service';
 import { Product } from 'src/app/Interfaces/product';
 
@@ -12,7 +13,7 @@ export class CartComponent implements OnInit {
   hasCartItems: boolean; 
   cartItems: any;
   totalPrice: number;
-  constructor(public dialogRef: MatDialogRef<CartComponent>, private cartService: CartService) { }
+  constructor(public dialogRef: MatDialogRef<CartComponent>, private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getProductsFromBasket();
@@ -46,6 +47,11 @@ export class CartComponent implements OnInit {
       this.cartService.updateProductInBasket(item);
     }
     this.calculTotalPrice(); 
+  }
+
+  confirmOrder(){
+    this.router.navigate(['validation']);
+    this.closeDialog();
   }
 
   private calculTotalPrice(){

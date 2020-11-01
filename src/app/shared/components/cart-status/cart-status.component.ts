@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/core/services/cart/cart.service';
 import { ConfirmDialogService } from 'src/app/core/services/dialog/confirm-dialog.service';
 import { Product } from 'src/app/Interfaces/product';
@@ -10,9 +11,9 @@ import { CartComponent } from 'src/app/modules/cart/cart.component';
   styleUrls: ['./cart-status.component.scss']
 })
 export class CartStatusComponent implements OnInit {
-  basketItemAddedSubscription: any;
+  basketItemAddedSubscription: Subscription;
   basketItemCount: number = 0;
-  basketDroppedSubscription: any;
+  basketDroppedSubscription: Subscription;
 
   constructor(private cartService: CartService, private dialogService: ConfirmDialogService) { }
 
@@ -30,6 +31,14 @@ export class CartStatusComponent implements OnInit {
   this.basketDroppedSubscription = this.cartService.basketDroped$.subscribe(res => {
       this.basketItemCount = 0;
   });
+  }
+
+  ngOnDestroy(): void {
+    if(this.basketItemAddedSubscription)
+      this.basketItemAddedSubscription.unsubscribe();
+
+    if(this.basketDroppedSubscription)
+      this.basketDroppedSubscription.unsubscribe();
   }
 
   private computeBasketCount(basket: Product[]): number {

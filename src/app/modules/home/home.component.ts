@@ -25,6 +25,19 @@ export class HomeComponent implements OnInit {
     this.familyNames = this.productFamilies.map((e) => e.FamilyName);
     this.setProductQuantityFromBasket();
     this.currency = 'EUR';
+
+    this.basketItemAddedSubscription = this.cartService.basketChanged$.subscribe((product) => {
+      if(product){
+        let products = this.productFamilies.map((family) => family.Products).reduce((a, b) => a.concat(b));
+        let index = products.findIndex((prd) => prd.Id == product.Id);
+        products[index].Quantity = product.Quantity
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    if(this.basketItemAddedSubscription)
+      this.basketItemAddedSubscription.unsubscribe();
   }
 
   private setProductQuantityFromBasket() {

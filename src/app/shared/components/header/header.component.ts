@@ -10,9 +10,11 @@ import { Router }                       from '@angular/router';
 export class HeaderComponent implements OnInit {
 @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   isAdminPath: boolean;
+  isHomePage: boolean;
 
   constructor(public dialogService: ConfirmDialogService, private _router: Router) {
     this.isAdminPath = this._router.url.includes('/admin');
+    this.isHomePage = !this._router.url.includes('/admin')  //this._router.url === "/";
    }
 
   ngOnInit() {
@@ -20,5 +22,9 @@ export class HeaderComponent implements OnInit {
 
   toggleSideBar(){
     this.toggleSideBarForMe.emit();
+  }
+
+  goBackToHomePage(){
+    this._router.navigate(["/"]);
   }
 }

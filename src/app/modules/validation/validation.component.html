@@ -1,23 +1,27 @@
-<div class="validationContainer">
-    <div class="labelDiv">
-        <button class="pickUpHourButton"><span class="bold">Aujourd'hui</span> : 13h30</button>
-    </div>
-    <div class="gobackDiv">
-        <button class="goBackButton">Retour</button>
-    </div>
-    <div class="infosDiv">
-        <div class="personalInfoDiv">
-            <div class="title">Informations personnelles</div>
-            <form action="">
-                <input name="persoDetails">
-            </form>
+<div class="validationContainer mainDiv">
+    <div class="topButtonsDiv">
+        <div class="labelDiv">
+            <button class="pickUpHourButton"><span class="bold">Aujourd'hui</span> : 13h30</button>
         </div>
-        <div class="pickUpDiv">Votre commande</div>
-    </div>
-    <div class="orderDiv">
-        <div class="orderDivHeader">
-            Votre commande
+        <div class="gobackDiv" (click)="goBackToHomePage()">
+            <button mat-icon-button class="goBackButton"><mat-icon>keyboard_arrow_left</mat-icon> <span class="gobackLibelle" >Retour</span></button>
         </div>
-        <app-cart-rows></app-cart-rows>
+    </div>
+    <div class="container">
+        <div class="infosDiv">
+            <div class="personalInfoDiv">
+                <div class="title">Informations personnelles</div>
+                <form action="">
+                    <input name="persoDetails">
+                </form>
+            </div>
+            <div class="pickUpDiv">Votre commande</div>
+        </div>
+        <div class="orderDiv">
+            <div class="orderDivHeader">
+                Votre commande
+            </div>
+            <app-cart-rows></app-cart-rows>
+        </div>
     </div>
 </div>

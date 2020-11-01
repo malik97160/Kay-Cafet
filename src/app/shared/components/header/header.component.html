@@ -5,14 +5,14 @@
             </button>
         </div>
         <div class="centerDiv center-vertical">
-            <div class="logoDiv center-vertical">
+            <div class="logoDiv center-vertical" (click)="goBackToHomePage()">
                 <img class="logo" src="assets/images/kayCafetLogo.png" alt="Kay Cafet'" /><span class="headerSpan">Kay Cafet'</span>
             </div>
         </div>
         <div class="rightIconsDiv center-vertical">
                 <ul class="rightIcons">
                     <li>
-                        <app-cart-status *ngIf="!isAdminPath"></app-cart-status>
+                        <app-cart-status *ngIf="isHomePage"></app-cart-status>
                     </li>
                 </ul>
         </div>

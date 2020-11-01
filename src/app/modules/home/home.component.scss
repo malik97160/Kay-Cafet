@@ -73,13 +73,6 @@
 }
 
 .mainDiv{
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center 50%;
-    background-color: rgb(249, 249, 249);// rgb(235, 228, 213);
-    background-image: url("/assets/images/KayCafetHomeBackground-min.png");
-    background-attachment: fixed;
-    width: 100%;
     display: flex;
     flex-direction: column;
 }

@@ -5,9 +5,10 @@
     outline: none;
     font-size: 15px;
     padding: 5px 1.5rem;
-    margin: .5rem;
     border-radius: 2px;
     cursor: pointer;
+    margin-bottom: 1.3rem;
+    margin-top: 0.5rem;
 }
 
 .goBackButton{
@@ -17,10 +18,38 @@
     border-color: #4A4A4A;
     color: #fff;
     width: 200px;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
 }
 
 .infosDiv{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 35%;
+    background-color: red;
+}
+
+.orderDiv{
+    width: 35%;
+    margin-left: 0.7%;
+    background-color: blue;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.topButtonsDiv{
+    display: flex;
+    flex-direction: column;
+    margin-left: 14.65%;
+}
+
+.gobackLibelle{
+    margin-left: 20%;
+    font-size: 1rem;
 }

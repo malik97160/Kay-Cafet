@@ -30,6 +30,7 @@ export class CartComponent implements OnInit {
 
   incrementItemCounter(item: Product){
     item.Quantity +=1;
+    this.cartService.updateProductInBasket(item);
     this.calculTotalPrice();
   }
 
@@ -37,8 +38,12 @@ export class CartComponent implements OnInit {
     item.Quantity-=1;
     if(item.Quantity <= 0){
       item.Quantity = 0;
+      this.cartService.removeProductInBasket(item);
       this.cartItems = this.cartItems.filter(cartItem => cartItem != item);
       this.setHasCartItem();
+    }
+    else{
+      this.cartService.updateProductInBasket(item);
     }
     this.calculTotalPrice(); 
   }

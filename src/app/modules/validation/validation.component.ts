@@ -7,10 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./validation.component.scss']
 })
 export class ValidationComponent implements OnInit {
+  totalAmount: number;
 
   constructor(private _router: Router) { }
 
   ngOnInit(): void {
+    this.totalAmount = 0;
   }
 
   goBackToHomePage(){

@@ -10,18 +10,21 @@
     <div class="container">
         <div class="infosDiv">
             <div class="personalInfoDiv">
-                <div class="title">Informations personnelles</div>
-                <form action="">
+                <div class="title half-bold">Informations personnelles</div>
+                <div class="persoInformations">
                     <input name="persoDetails">
-                </form>
+                </div>
             </div>
-            <div class="pickUpDiv">Votre commande</div>
+            <!-- <div class="pickUpDiv"><mat-icon>shopping_cart</mat-icon> Votre commande</div> -->
         </div>
         <div class="orderDiv">
-            <div class="orderDivHeader">
-                Votre commande
-            </div>
+            <div class="separator-blocks"></div>
+            <div class="orderDivHeader half-bold"><!--<mat-icon>shopping_cart_outline</mat-icon>--><span class="orderDivName">Votre commande</span></div>
             <app-cart-rows></app-cart-rows>
+            <div class="totalDiv">
+                <div class="leftTotal">Total</div>
+                <div class="rightTotal">{{ totalAmount}}</div>
+            </div>
         </div>
     </div>
 </div>

@@ -28,13 +28,12 @@
     flex-direction: row;
     justify-content: center;
     width: 35%;
-    background-color: red;
+    background-color: #fff;
 }
 
 .orderDiv{
     width: 35%;
     margin-left: 0.7%;
-    background-color: blue;
 }
 
 .container{
@@ -52,4 +51,31 @@
 .gobackLibelle{
     margin-left: 20%;
     font-size: 1rem;
+}
+
+.orderDivHeader{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.orderDivName{
+    font-family: Titillium Web,AvenirNextDemiBold,Avenir,Helvetica,Arial,sans-serif;
+    color: #444;
+    padding-left: 8px;
+}
+
+.separator-blocks{
+    width: 100%;
+    height: 2px;
+    background: #ececec;
+}
+
+.totalDiv{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
 }

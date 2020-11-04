@@ -65,7 +65,6 @@
 .orderDivName{
     font-family: Titillium Web,AvenirNextDemiBold,Avenir,Helvetica,Arial,sans-serif;
     color: #444;
-    padding-left: 8px;
 }
 
 .separator-blocks{
@@ -78,4 +77,44 @@
     display: flex;
     justify-content: space-between;
     background-color: #fff;
+    padding: 16px 16px 16px 0px;
+}
+
+.commentContainer{
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding-top: 1rem;
+}
+
+#commentArea{
+    width: 96%;
+    height: 4.5rem;
+    display: block;
+    resize: vertical;
+    padding: 5px 2%;
+    line-height: 1.5;
+    font-size: inherit;
+    color: #606266;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+}
+
+// #commentArea:focus{
+//     border-color: #c0c4cc;
+// }
+
+.leftTotal{
+    width: 85%;
+    font-size: 18px;
+}
+
+.rightTotal{
+    width: 13%;
+}
+
+.commentTitle{
+    font-size: 18px;
 }

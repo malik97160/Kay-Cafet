@@ -22,8 +22,14 @@
             <div class="orderDivHeader half-bold"><!--<mat-icon>shopping_cart_outline</mat-icon>--><span class="orderDivName">Votre commande</span></div>
             <app-cart-rows (totalPriceEvent)="setTotalPrice($event)"></app-cart-rows>
             <div class="totalDiv">
-                <div class="leftTotal">Total</div>
+                <div class="leftTotal bold">Total</div>
                 <div class="rightTotal bold">{{ totalAmount | currency:'EUR' }}</div>
+            </div>
+            <div class="commentContainer">
+                <div class="commentTitle bold">Commentaire</div>
+                <div class="commentTextDiv">
+                    <textarea autocomplete="off" placeholder="Commentaire" id="commentArea" rows="2"></textarea>
+                </div>
             </div>
         </div>
     </div>

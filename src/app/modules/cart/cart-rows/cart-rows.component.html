@@ -1,4 +1,4 @@
-<div class="middleContainer" [ngClass]="{'flex': !hasCartItems}">
+<div class="middleContainer" [ngClass]="{'flex': !hasCartItems, 'noMargin': !isFromBasket}">
     <div *ngIf="!hasCartItems" class="vertical-middle">
         <img src="/assets/images/watermelon.gif" alt="panier vide">
         <div class="emptyCartDiv">

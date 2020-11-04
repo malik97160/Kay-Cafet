@@ -30,10 +30,17 @@
     align-items: center;
 }
 
+.middleContainer:not(.noMargin){
+    margin-bottom: 95px;
+}
+
 .middleContainer{
     align-items: center;
     flex-direction: column;
-    margin-bottom: 95px;
+}
+
+.noMargin{
+    margin-bottom: 0;
 }
 
 .flex{

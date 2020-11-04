@@ -10,20 +10,23 @@
             <div *ngFor="let family of productFamilies" id="{{ family.FamilyName }}">
                 <div class="categoryTitle"><span class="capitalize title-bigger">{{ family.FamilyName }}</span><span class="text-underline referenceCount">{{ family.Products.length}} références</span></div>
                 <div class="itemsCategory">
-                    <div *ngFor="let product of family.Products" class="item">
+                    <div *ngFor="let product of family.Products" class="item" [ngClass]="{'unavailableProduct': product.IsSoldOut}" >
                         <div *ngIf="product.Photo" class="itemPhoto center-vertical"><img src="{{product.Photo}}" alt="{{product.Name}}"></div>
                         <div class="itemDescriptionBloc fullwidth">
                             <div class="itemDescription text-title-regular capitalize">{{ product.Name}}</div>
                             <div class="itemDescriptionLabel text-underline capitalize">{{ product.Description }}</div>
                             <div class="itemPriceBlock">
-                                <div class="itemPrice">{{ product.UnitPrice | currency:currency }}</div>
-                                <div *ngIf="product.Quantity > 0" class="cartButton">
+                                <div class="itemPrice bold">{{ product.UnitPrice | currency:currency }}</div>
+                                <div *ngIf="!product.IsSoldOut && product.Quantity > 0" class="cartButton">
                                     <button id="decrementCart" class="buttonCart" (click)="decrementProduct(product)" ><mat-icon>remove</mat-icon></button>
-                                    <div class="cartItemcount">{{  product.Quantity}}</div>
+                                    <div class="cartItemcount bold">{{  product.Quantity}}</div>
                                     <button id="incrementCart" class="buttonCart" (click)="incrementProduct(product)" ><mat-icon>add</mat-icon></button>
                                 </div>
-                                <button *ngIf="!product.Quantity || product.Quantity == 0" (click)="addProduct(product)" class="addItemButton">Ajouter</button>
+                                <button *ngIf="!product.IsSoldOut && (!product.Quantity || product.Quantity == 0)" (click)="addProduct(product)" class="addItemButton">Ajouter</button>
                             </div>
+                        </div>
+                        <div *ngIf="product.IsSoldOut" class="unavailableProductMessage">
+                            Ce produit est victime de son succès
                         </div>
                     </div>
                 </div>

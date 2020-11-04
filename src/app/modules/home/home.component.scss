@@ -72,6 +72,12 @@
     }
 }
 
+@media all and(max-width:1500px){
+    .itemsCategory{
+        justify-content: center;
+    }
+}
+
 .mainDiv{
     display: flex;
     flex-direction: column;
@@ -262,4 +268,19 @@ img{
 .buttonCart{
     background-color: rgb(74, 74, 74);
     color: white;
+}
+
+.unavailableProduct{
+    background: rgba(0,0,0,0.5);
+}
+
+.unavailableProduct > *:not(.unavailableProductMessage){
+    opacity: 0.6;
+}
+
+.unavailableProductMessage{
+    color: #fff;
+    position: absolute;
+    margin-top: 3.2rem;
+    margin-left: 2.5rem;
 }

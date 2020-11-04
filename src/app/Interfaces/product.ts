@@ -6,4 +6,5 @@ export interface Product {
     Photo?: string;
     Currency?: string;
     Quantity?: number;
+    IsSoldOut?: boolean;
 }

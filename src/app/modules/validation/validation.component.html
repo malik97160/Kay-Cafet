@@ -20,10 +20,10 @@
         <div class="orderDiv">
             <div class="separator-blocks"></div>
             <div class="orderDivHeader half-bold"><!--<mat-icon>shopping_cart_outline</mat-icon>--><span class="orderDivName">Votre commande</span></div>
-            <app-cart-rows></app-cart-rows>
+            <app-cart-rows (totalPriceEvent)="setTotalPrice($event)"></app-cart-rows>
             <div class="totalDiv">
                 <div class="leftTotal">Total</div>
-                <div class="rightTotal">{{ totalAmount}}</div>
+                <div class="rightTotal bold">{{ totalAmount | currency:'EUR' }}</div>
             </div>
         </div>
     </div>

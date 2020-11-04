@@ -4,7 +4,7 @@ import { Product } from 'src/app/Interfaces/product';
 const formuleProducts: Product[] = [
     { Id : "1",Name : "formule végétarienne", Description : "formule composée d'un sandwich végétarien ainsi que d'une boisson.", UnitPrice : 9},
     { Id : "2",Name : "formule végan", Description : "fjsqmldkfjqsoifner azfjzmlefjzhamlfihazlf zlefjzfj", UnitPrice : 7.50},
-    { Id : "3",Name : "formule allégée", Description : "formule super", UnitPrice : 6.6},
+    { Id : "3",Name : "formule allégée", Description : "formule super", UnitPrice : 6.6, IsSoldOut: true},
     { Id : "4",Name : "formule bon vivant", Description : "bon vivant", UnitPrice : 5.9, Photo: "https://d359hnfgsmn1y2.cloudfront.net/upload/product_foods/media/65101/web/1084ca50eec2dca8c20c965d59c3fbed38d5b0730f4d2a786a55df9750e164ec.png"},
     { Id : "5",Name : "formule oasis + sandwich poulet + cookies", Description : "", UnitPrice : 10.5},
     { Id : "6",Name : "formule Yves Leborgne", Description : "", UnitPrice : 8}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/core/services/cart/cart.service';
 
 @Component({
   selector: 'app-validation',
@@ -9,13 +10,16 @@ import { Router } from '@angular/router';
 export class ValidationComponent implements OnInit {
   totalAmount: number;
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _cartService: CartService) { }
 
   ngOnInit(): void {
-    this.totalAmount = 0;
   }
 
   goBackToHomePage(){
     this._router.navigate(["/"]);
+  }
+
+  setTotalPrice($event){
+    this.totalAmount = $event;
   }
 }

@@ -25,10 +25,9 @@
 
 .infosDiv{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     width: 35%;
     background-color: #fff;
+    flex-direction: column;
 }
 
 .orderDiv{
@@ -60,6 +59,7 @@
     background-color: #fff;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .orderDivName{
@@ -102,10 +102,6 @@
     border-radius: 4px;
 }
 
-// #commentArea:focus{
-//     border-color: #c0c4cc;
-// }
-
 .leftTotal{
     width: 85%;
     font-size: 18px;
@@ -117,4 +113,35 @@
 
 .commentTitle{
     font-size: 18px;
+}
+
+.formGroup{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.formGroup > input {
+    width: 46%;
+    line-height: 1.8rem;
+}
+
+#emailInput, .payment > span{
+    line-height: 1.8rem;
+    width: 94%;
+    align-self: center;
+}
+
+#fullNameInput{
+    margin-right: 1%;
+}
+
+.persoInformations, .payment, .confirmOrderDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+#validOrder{
+    align-self: center;
+    width: 50%;
 }

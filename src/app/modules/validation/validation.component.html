@@ -10,15 +10,29 @@
     <div class="container">
         <div class="infosDiv">
             <div class="personalInfoDiv">
-                <div class="title half-bold">Informations personnelles</div>
-                <div class="persoInformations">
-                    <input name="persoDetails">
+                <div class="orderDivHeader half-bold"><span class="orderDivName">Informations personnelles</span></div>
+                <form class="persoInformations">
+                    <div class="formGroup">
+                        <input id="fullNameInput" placeholder="Nom complet" type="text">
+                        <input placeholder="Numéro de téléphone" type="text">
+                    </div>
+                    <input type="email" id="emailInput" placeholder="Adresse email">
+                </form>
+            </div>
+            <div class="payment">
+                <div class="orderDivHeader half-bold"><span class="orderDivName">Moyen de paiement</span></div>
+                <span>Paiment sur place</span>
+            </div>
+            <div class="confirmOrderDiv">
+                <div class="generalConditionsDiv">
+                    En cochant cette case, je reconnais avoir pris connaissance des Conditions Générales de ventes
                 </div>
+                <button id="validOrder" type="submit" >Valider</button>
             </div>
             <!-- <div class="pickUpDiv"><mat-icon>shopping_cart</mat-icon> Votre commande</div> -->
         </div>
         <div class="orderDiv">
-            <div class="separator-blocks"></div>
+            <!-- <div class="separator-blocks"></div> -->
             <div class="orderDivHeader half-bold"><!--<mat-icon>shopping_cart_outline</mat-icon>--><span class="orderDivName">Votre commande</span></div>
             <app-cart-rows (totalPriceEvent)="setTotalPrice($event)"></app-cart-rows>
             <div class="totalDiv">

@@ -13,6 +13,7 @@ import { ValidationComponent } from './modules/validation/validation.component';
 import { registerLocaleData } from '@angular/common';
 import localeFR from '@angular/common/locales/fr';
 import { CartRowsComponent } from './modules/cart/cart-rows/cart-rows.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 registerLocaleData(localeFR);
 @NgModule({
@@ -33,7 +34,9 @@ registerLocaleData(localeFR);
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+    FormsModule 
   ],
   providers: [{
     provide: LOCALE_ID,

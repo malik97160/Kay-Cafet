@@ -16,7 +16,7 @@
                     <div *ngIf="isFromBasket" class="itemPriceBlock">
                         <div class="cartButton">
                             <button id="decrementCart" class="buttonCart" (click)="decrementItemCounter(item)" ><mat-icon>remove</mat-icon></button>
-                            <div class="cartItemcount" [(ngModel)]="item.Quantity" >{{ item.Quantity}}</div>
+                            <div class="cartItemcount">{{ item.Quantity}}</div>
                             <button id="incrementCart" class="buttonCart" (click)="incrementItemCounter(item)" ><mat-icon>add</mat-icon></button>
                         </div>
                     </div>

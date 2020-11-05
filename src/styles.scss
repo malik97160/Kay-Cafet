@@ -116,3 +116,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 100%;
   min-height: 81vh;
 }
+
+input[readonly]{
+  background-color: #8080806e;
+}

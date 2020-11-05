@@ -7,17 +7,21 @@
             <button mat-icon-button class="goBackButton"><mat-icon>keyboard_arrow_left</mat-icon> <span class="gobackLibelle" >Retour</span></button>
         </div>
     </div>
-    <div class="container">
+    <form class="container" [formGroup]="validOrderForm">
         <div class="infosDiv">
             <div class="personalInfoDiv">
                 <div class="orderDivHeader half-bold"><span class="orderDivName">Informations personnelles</span></div>
-                <form class="persoInformations">
-                    <div class="formGroup">
-                        <input id="fullNameInput" placeholder="Nom complet" type="text">
-                        <input placeholder="Numéro de téléphone" type="text">
+                <div class="persoInformations">
+                    <div class="formGroupDiv">
+                        <input readonly value="{{user.FirstName}} {{ user.LastName}}" id="fullNameInput" placeholder="Nom complet" type="text">
+                        <!-- <div class="phoneDiv"> -->
+                            <input formControlName="phoneNumber" placeholder="Numéro de téléphone" type="text">
+                            <mat-error *ngIf="phoneNumber.touched && phoneNumber.invalid">Veuillez saisir un numéro de téléphone valid.</mat-error>
+                        <!-- </div> -->
                     </div>
-                    <input type="email" id="emailInput" placeholder="Adresse email">
-                </form>
+                    <input formControlName="email" type="email" id="emailInput" placeholder="Adresse email">
+                    <mat-error *ngIf="email.touched && email.invalid">Veuillez saisir une addresse email valide.</mat-error>
+                </div>
             </div>
             <div class="payment">
                 <div class="orderDivHeader half-bold"><span class="orderDivName">Moyen de paiement</span></div>
@@ -27,7 +31,7 @@
                 <div class="generalConditionsDiv">
                     En cochant cette case, je reconnais avoir pris connaissance des Conditions Générales de ventes
                 </div>
-                <button id="validOrder" type="submit" >Valider</button>
+                <button id="validOrder" [disabled]="validOrderForm.invalid" type="submit" >Valider</button>
             </div>
             <!-- <div class="pickUpDiv"><mat-icon>shopping_cart</mat-icon> Votre commande</div> -->
         </div>
@@ -46,5 +50,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>

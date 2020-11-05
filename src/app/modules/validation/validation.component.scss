@@ -115,13 +115,13 @@
     font-size: 18px;
 }
 
-.formGroup{
+.formGroupDiv{
     display: flex;
     justify-content: center;
     margin-bottom: 1rem;
 }
 
-.formGroup > input {
+.formGroupDiv > input {
     width: 46%;
     line-height: 1.8rem;
 }
@@ -134,6 +134,7 @@
 
 #fullNameInput{
     margin-right: 1%;
+    text-transform: capitalize;
 }
 
 .persoInformations, .payment, .confirmOrderDiv{
@@ -145,3 +146,8 @@
     align-self: center;
     width: 50%;
 }
+
+// .phoneDiv{
+//     display: flex;
+//     flex-direction: column;
+// }

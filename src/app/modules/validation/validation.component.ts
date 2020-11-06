@@ -12,6 +12,7 @@ export class ValidationComponent implements OnInit {
   totalAmount: number;
   validOrderForm: FormGroup;
   user: User;
+  submitted: boolean = false;
   constructor(private _router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -23,14 +24,24 @@ export class ValidationComponent implements OnInit {
       PhoneNumber: "0678963541"
     };
     this.validOrderForm = this.fb.group({
-      fullName: '', 
       phoneNumber: [this.user.PhoneNumber, [Validators.pattern(phoneregex)]],
       email: [this.user.Email, [
         Validators.required,
         Validators.email
       ]],
-      agree: ''
+      agree: [false, Validators.requiredTrue],
+      comment: ''
     })
+  }
+
+  onSubmit(){
+    this.submitted = true;
+
+    if(this.validOrderForm.invalid){
+      return;
+    }
+
+    alert(JSON.stringify(this.validOrderForm.value));
   }
 
   goBackToHomePage(){
@@ -51,5 +62,9 @@ export class ValidationComponent implements OnInit {
 
   get phoneNumber(){
     return this.validOrderForm.get('phoneNumber');
+  }
+
+  get agree(){
+    return this.validOrderForm.get('agree');
   }
 }

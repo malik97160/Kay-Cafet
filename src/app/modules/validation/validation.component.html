@@ -4,34 +4,42 @@
             <button class="pickUpHourButton"><span class="bold">Aujourd'hui</span> : 13h30</button>
         </div>
         <div class="gobackDiv" (click)="goBackToHomePage()">
-            <button mat-icon-button class="goBackButton"><mat-icon>keyboard_arrow_left</mat-icon> <span class="gobackLibelle" >Retour</span></button>
+            <button mat-icon-button class="goBackButton btn"><mat-icon>keyboard_arrow_left</mat-icon> <span class="gobackLibelle" >Retour</span></button>
         </div>
     </div>
-    <form class="container" [formGroup]="validOrderForm">
+    <form class="container" [formGroup]="validOrderForm" (ngSubmit)="onSubmit()" >
         <div class="infosDiv">
             <div class="personalInfoDiv">
                 <div class="orderDivHeader half-bold"><span class="orderDivName">Informations personnelles</span></div>
                 <div class="persoInformations">
                     <div class="formGroupDiv">
-                        <input readonly value="{{user.FirstName}} {{ user.LastName}}" id="fullNameInput" placeholder="Nom complet" type="text">
-                        <!-- <div class="phoneDiv"> -->
+                        <div>
+                            <input readonly value="{{user.FirstName}} {{ user.LastName}}" id="fullNameInput" placeholder="Nom complet" type="text">
+                        </div>
+                        <div class="phoneDiv">
                             <input formControlName="phoneNumber" placeholder="Numéro de téléphone" type="text">
-                            <mat-error *ngIf="phoneNumber.touched && phoneNumber.invalid">Veuillez saisir un numéro de téléphone valid.</mat-error>
-                        <!-- </div> -->
+                            <mat-error *ngIf="phoneNumber.touched && phoneNumber.invalid">Veuillez saisir un numéro de téléphone valide.</mat-error>
+                        </div>
                     </div>
-                    <input formControlName="email" type="email" id="emailInput" placeholder="Adresse email">
-                    <mat-error *ngIf="email.touched && email.invalid">Veuillez saisir une addresse email valide.</mat-error>
+                    <div class="emailDiv">                   
+                        <input formControlName="email" type="email" id="emailInput" placeholder="Adresse email">
+                        <mat-error class="emailErrorMessage" *ngIf="email.touched && email.invalid">Veuillez saisir une addresse email valide.</mat-error>
+                    </div>
                 </div>
             </div>
-            <div class="payment">
+            <!-- <div class="payment">
                 <div class="orderDivHeader half-bold"><span class="orderDivName">Moyen de paiement</span></div>
                 <span>Paiment sur place</span>
-            </div>
+            </div> -->
             <div class="confirmOrderDiv">
                 <div class="generalConditionsDiv">
-                    En cochant cette case, je reconnais avoir pris connaissance des Conditions Générales de ventes
+                    <div>                      
+                        <input type="checkbox" class="agreeGeneralTerms" formControlName="agree">
+                        <span>En cochant cette case, je reconnais avoir pris connaissance des Conditions Générales de vente</span>
+                    </div>
+                    <mat-error *ngIf="agree.invalid && submitted" >Veuillez cocher la case afin d'accepter les condtions générales de ventes.</mat-error>
                 </div>
-                <button id="validOrder" [disabled]="validOrderForm.invalid" type="submit" >Valider</button>
+                <button id="validOrder" class="btn" type="submit" >Valider</button>
             </div>
             <!-- <div class="pickUpDiv"><mat-icon>shopping_cart</mat-icon> Votre commande</div> -->
         </div>
@@ -46,7 +54,7 @@
             <div class="commentContainer">
                 <div class="commentTitle bold">Commentaire</div>
                 <div class="commentTextDiv">
-                    <textarea autocomplete="off" placeholder="Commentaire" id="commentArea" rows="2"></textarea>
+                    <textarea formControlName="comment" autocomplete="off" placeholder="Commentaire" id="commentArea" rows="2"></textarea>
                 </div>
             </div>
         </div>

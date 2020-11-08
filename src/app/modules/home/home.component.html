@@ -22,7 +22,7 @@
                                     <div class="cartItemcount bold">{{  product.Quantity}}</div>
                                     <button id="incrementCart" class="buttonCart" (click)="incrementProduct(product)" ><mat-icon>add</mat-icon></button>
                                 </div>
-                                <button *ngIf="!product.IsSoldOut && (!product.Quantity || product.Quantity == 0)" (click)="addProduct(product)" class="addItemButton">Ajouter</button>
+                                <button *ngIf="!product.IsSoldOut && (!product.Quantity || product.Quantity == 0)" (click)="addProduct(product)" class="addItemButton btn bold">Ajouter</button>
                             </div>
                         </div>
                         <div *ngIf="product.IsSoldOut" class="unavailableProductMessage">

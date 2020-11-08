@@ -107,16 +107,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .mainDiv{
-  //background-size: contain;
-  //background-repeat: no-repeat;
-  //background-position: center 50%;
-  background-color: rgb(249, 249, 249);// rgb(235, 228, 213);
-  //background-image: url("/assets/images/KayCafetHomeBackground-min.png");
-  //background-attachment: fixed;
+  background-color: rgb(249, 249, 249);
   width: 100%;
-  min-height: 81vh;
+  min-height: 78vh;
+  padding-bottom: 3vh;
 }
 
 input[readonly]{
   background-color: #8080806e;
+}
+
+.btn{
+  cursor: pointer;
+  border-radius: 4px!important;
+  background-color: #4A4A4A;
+  border-color: #4A4A4A;
+  color: #fff;
+  width: 200px;
+  height: 2.5rem;
 }

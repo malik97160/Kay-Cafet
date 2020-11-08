@@ -30,7 +30,7 @@
     align-items: center;
 }
 
-.middleContainer:not(.noMargin){
+.middleContainer:not(.notFromCart){
     margin-bottom: 95px;
 }
 
@@ -39,7 +39,7 @@
     flex-direction: column;
 }
 
-.noMargin{
+.middleContainer.noMargin{
     margin-bottom: 0;
 }
 
@@ -102,4 +102,8 @@
 
 .buttonCart > mat-icon {
     color: #888;
+}
+
+.notFromCart.itemDescriptionBloc{
+    padding-left: 1rem;
 }

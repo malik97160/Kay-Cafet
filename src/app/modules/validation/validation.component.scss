@@ -16,16 +16,6 @@
     align-items: center;
 }
 
-.btn{
-    cursor: pointer;
-    border-radius: 4px!important;
-    background-color: #4A4A4A;
-    border-color: #4A4A4A;
-    color: #fff;
-    width: 200px;
-    height: 2.5rem;
-}
-
 .infosDiv{
     display: flex;
     width: 35%;
@@ -88,7 +78,7 @@
     display: flex;
     justify-content: space-between;
     background-color: #fff;
-    padding: 16px 16px 16px 0px;
+    padding: 16px 0 16px 0px;
 }
 
 .commentContainer{
@@ -96,6 +86,7 @@
     flex-direction: column;
     background: #fff;
     padding-top: 1rem;
+    padding-left: 1rem;
 }
 
 #commentArea{
@@ -116,6 +107,7 @@
 .leftTotal{
     width: 85%;
     font-size: 18px;
+    padding-left: 1rem;
 }
 
 .rightTotal{

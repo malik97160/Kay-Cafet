@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class CartComponent implements OnInit {
   totalPrice: number;
   hasCartItems: boolean;
-  constructor(public dialogRef: MatDialogRef<CartComponent>, private router: Router) { }
+  constructor(public dialogRef: MatDialogRef<CartComponent>, private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
   }
 
   confirmOrder(){
-    this.router.navigate(['validation']);
+    this._router.navigate(["validation"]);
     this.closeDialog();
   }
 

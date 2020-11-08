@@ -16,7 +16,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form [formGroup]="signInForm" (ngSubmit)="signIn()">
                 <h1>Connecte toi</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -24,10 +24,10 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>ou utilise ton compte</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input formControlName="login" type="email" placeholder="Login" />
+                <input formControlName="password" type="password" placeholder="Password" />
                 <a href="#">Mot de passe oublié?</a>
-                <button>Connexion</button>
+                <button type="submit" >Connexion</button>
             </form>
         </div>
         <div class="overlay-container">

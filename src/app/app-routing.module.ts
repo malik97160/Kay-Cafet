@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { AdminComponent } from './layouts/admin/admin.component';
 import { SiteComponent } from './layouts/site/site.component';
 import { DashboadComponent } from './modules/dashboad/dashboad.component';
@@ -15,7 +16,7 @@ const routes: Routes = [
     component: SiteComponent,
     children: [
       {path: '', component: HomeComponent, pathMatch: 'full'},
-      {path: 'validation', component: ValidationComponent}
+      {path: 'validation', component: ValidationComponent, canActivate: [AuthGuard]}
     ]
   },
 

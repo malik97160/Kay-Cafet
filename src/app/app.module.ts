@@ -14,6 +14,8 @@ import { registerLocaleData } from '@angular/common';
 import localeFR from '@angular/common/locales/fr';
 import { CartRowsComponent } from './modules/cart/cart-rows/cart-rows.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './auth.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(localeFR);
 @NgModule({
@@ -36,12 +38,14 @@ registerLocaleData(localeFR);
     MatSelectModule,
     MatIconModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule,
+    HttpClientModule
   ],
   providers: [{
     provide: LOCALE_ID,
     useValue: 'fr'
-  }],
+  }, 
+  AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

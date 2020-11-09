@@ -126,3 +126,11 @@ input[readonly]{
   width: 200px;
   height: 2.5rem;
 }
+
+button:disabled{
+  opacity: 0.5;
+}
+
+.mat-error{
+  font-size: 0.8rem;
+}

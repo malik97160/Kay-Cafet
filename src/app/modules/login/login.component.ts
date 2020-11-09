@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   signInButton: HTMLElement;
   container: HTMLElement;
   signInForm: FormGroup;
+  signInFormSubmitted: boolean = false;
   constructor(private authService: AuthService, private formBuilder: FormBuilder) {
    }
 
@@ -34,10 +35,20 @@ export class LoginComponent implements OnInit {
 
   signIn(){
     debugger;
+    this.signInFormSubmitted = true;
+    
     if (this.signInForm.invalid)
       return false;
 
     var payload: LoginPayload = this.signInForm.value;
     this.authService.login(payload);
+  }
+
+  get login(){
+    return this.signInForm.get('login');
+  }
+
+  get password(){
+    return this.signInForm.get('password');
   }
 }

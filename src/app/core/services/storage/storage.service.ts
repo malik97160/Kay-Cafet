@@ -12,7 +12,7 @@ export class StorageService {
     this.storage = localStorage;
    }
 
-   public retrieve(key: string){
+   public retrieve(key: string): any{
       let item = this.storage.getItem(key);
 
       if (item && item != 'undefined'){

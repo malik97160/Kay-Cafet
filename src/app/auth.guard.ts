@@ -12,7 +12,7 @@ constructor(private _router: Router, private _authService: AuthService) {
 }
 
   canActivate(): boolean{
-    if (this._authService.isLoggedIn()){
+    if (this._authService.isAuthenticated()){
       return true;
     }else{
       this._router.navigate(["login"]);

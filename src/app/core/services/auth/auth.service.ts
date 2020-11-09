@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { LoginPayload } from './login-paylaod';
 import { map } from 'rxjs/operators'
 import { StorageService } from '../storage/storage.service';
+import { JwtHelperService } from '@auth0/angular-jwt/lib/jwthelper.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,15 @@ import { StorageService } from '../storage/storage.service';
 export class AuthService {
   baseUrl: any;
   clientId: string = "KayCafet";
-  constructor(private http: HttpClient, private storageService: StorageService) { 
+  jwtKey: string = 'jwt';
+  constructor(private jwtHelper: JwtHelperService, private http: HttpClient, private storageService: StorageService) { 
     this.baseUrl = environment.apiUrl;
   }
 
-  isLoggedIn(): boolean {
-    return false;
+  isAuthenticated(): boolean {
+    debugger;
+    const token = this.storageService.retrieve(this.jwtKey);
+    return !this.jwtHelper.isTokenExpired(token);
   }
 
   login(loginPayload: LoginPayload){
@@ -35,7 +39,7 @@ export class AuthService {
       })
     }).pipe(map(data => {})).subscribe(result => {
       const token = (<any>result).token;
-      this.storageService.store('jwt', token);
+      this.storageService.store(this.jwtKey, token);
     })
   }
 }

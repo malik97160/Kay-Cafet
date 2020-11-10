@@ -16,6 +16,7 @@ import { CartRowsComponent } from './modules/cart/cart-rows/cart-rows.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 registerLocaleData(localeFR);
 @NgModule({
@@ -45,7 +46,8 @@ registerLocaleData(localeFR);
     provide: LOCALE_ID,
     useValue: 'fr'
   }, 
-  AuthGuard],
+  AuthGuard,
+  { provide: "BASE_API_URL", useValue: environment.apiUrl}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

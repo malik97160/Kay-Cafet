@@ -1,26 +1,46 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { LoginPayload } from './login-paylaod';
 import { map } from 'rxjs/operators'
 import { StorageService } from '../storage/storage.service';
-import { JwtHelperService } from '@auth0/angular-jwt/lib/jwthelper.service';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl: any;
   clientId: string = "KayCafet";
   jwtKey: string = 'jwt';
-  constructor(private jwtHelper: JwtHelperService, private http: HttpClient, private storageService: StorageService) { 
-    this.baseUrl = environment.apiUrl;
+  constructor(private http: HttpClient, private storageService: StorageService) {
   }
 
   isAuthenticated(): boolean {
     debugger;
     const token = this.storageService.retrieve(this.jwtKey);
-    return !this.jwtHelper.isTokenExpired(token);
+    return !this.isTokenExpired(token);
+  }
+
+  isTokenExpired(token: string) {
+    if(!token) return true;
+
+    const date = this.getTokenExpirationDate(token);
+    if(date === undefined) return false;
+    return !(date.valueOf() > new Date().valueOf());
+  }
+
+  getTokenExpirationDate(token: string) {
+    debugger;
+    const decoded = jwtDecode(token) as JWtToken;
+
+    if (decoded.exp === undefined) return null;
+
+    const date = new Date(0); 
+    date.setUTCSeconds(decoded.exp);
+    return date;
+  }
+  
+  getToken(): string {
+      return this.storageService.retrieve(this.jwtKey);
   }
 
   login(loginPayload: LoginPayload){
@@ -42,4 +62,8 @@ export class AuthService {
       this.storageService.store(this.jwtKey, token);
     })
   }
+}
+
+export class JWtToken{
+  exp: number
 }

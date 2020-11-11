@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Persistence;
 
 namespace back
 {
@@ -28,8 +29,8 @@ namespace back
             //services.AddPersistence(Configuration);
             //services.AddApplication();
 
-            services.AddHealthChecks();
-                //.AddDbContextCheck<NorthwindDbContext>();
+            services.AddHealthChecks()
+                .AddDbContextCheck<KayCafetDbContext>();
 
             //services.AddScoped<ICurrentUserService, CurrentUserService>();
 
@@ -38,7 +39,7 @@ namespace back
             services
                 .AddControllersWithViews();
                 //.AddNewtonsoftJson()
-                //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<INorthwindDbContext>());
+                //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<IKayCafetDbContext>());
 
             services.AddRazorPages();
 
@@ -88,8 +89,7 @@ namespace back
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/swagger.json", "KayCafet API");
-                c.RoutePrefix = string.Empty;
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "KayCafet API");
             });
 
             app.UseRouting();
@@ -106,7 +106,7 @@ namespace back
                 endpoints.MapRazorPages();
             });
 
-            app.UseSpa(spa =>
+            /*app.UseSpa(spa =>
             {
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
                 // see https://go.microsoft.com/fwlink/?linkid=864501
@@ -117,7 +117,7 @@ namespace back
                 {
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
-            });
+            });*/
         }
     }
 }

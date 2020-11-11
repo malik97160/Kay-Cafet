@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "laShwKKdEVGbTla8HMeCgALvsAAjHKoagn8QqOqrfHrav6/GjCEl/yKMjfLCz3YZRYu4wR5hD9idFSprHK7MtQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Utilisateur\\Documents\\Developpement\\KayCafet\\back\\Persistence\\Persistence.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.0-rc.2.20475.6\\microsoft.entityframeworkcore.5.0.0-rc.2.20475.6.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.0-rc.2.20475.6\\microsoft.entityframeworkcore.abstractions.5.0.0-rc.2.20475.6.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.0-rc.2.20475.6\\microsoft.entityframeworkcore.analyzers.5.0.0-rc.2.20475.6.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.0-rc.2.20475.6\\microsoft.entityframeworkcore.relational.5.0.0-rc.2.20475.6.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0-rc.2.20475.5\\microsoft.extensions.caching.abstractions.5.0.0-rc.2.20475.5.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0-rc.2.20475.5\\microsoft.extensions.caching.memory.5.0.0-rc.2.20475.5.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0-rc.2.20475.5\\microsoft.extensions.configuration.abstractions.5.0.0-rc.2.20475.5.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.0-rc.2.20475.5\\microsoft.extensions.dependencyinjection.5.0.0-rc.2.20475.5.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0-rc.2.20475.5\\microsoft.extensions.dependencyinjection.abstractions.5.0.0-rc.2.20475.5.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0-rc.2.20475.5\\microsoft.extensions.logging.5.0.0-rc.2.20475.5.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0-rc.2.20475.5\\microsoft.extensions.logging.abstractions.5.0.0-rc.2.20475.5.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.extensions.options\\5.0.0-rc.2.20475.5\\microsoft.extensions.options.5.0.0-rc.2.20475.5.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0-rc.2.20475.5\\microsoft.extensions.primitives.5.0.0-rc.2.20475.5.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\mysqlconnector\\1.0.1\\mysqlconnector.1.0.1.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\5.0.0-alpha.1\\pomelo.entityframeworkcore.mysql.5.0.0-alpha.1.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\pomelo.jsonobject\\2.2.1\\pomelo.jsonobject.2.2.1.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\system.collections.immutable\\5.0.0-rc.2.20475.5\\system.collections.immutable.5.0.0-rc.2.20475.5.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0-rc.2.20475.5\\system.componentmodel.annotations.5.0.0-rc.2.20475.5.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0-rc.2.20475.5\\system.diagnostics.diagnosticsource.5.0.0-rc.2.20475.5.nupkg.sha512"
+  ],
+  "logs": []
+}

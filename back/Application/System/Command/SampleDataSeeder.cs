@@ -55,7 +55,7 @@ namespace Application.System.Command
             if (await _userManager.FindByEmailAsync(adminUserEmail) == null)
             {
                 await _userManager.CreateAsync(adminUser);
-                //await _userManager.AddToRoleAsync(adminUser, _adminRole);
+                await _userManager.AddToRoleAsync(adminUser, _adminRole);
                 adminUser.EmailConfirmed = true;
                 adminUser.LockoutEnabled = false;
                 await _context.SaveChangesAsync(cancellationToken);

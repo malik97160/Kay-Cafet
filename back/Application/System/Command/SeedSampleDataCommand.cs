@@ -23,7 +23,7 @@ namespace Application.System.Command
             }
             public async Task<Unit> Handle(SeedSampleDataCommand request, CancellationToken cancellationToken)
             {
-                var sampleDataSeeder = new SampleDataSeeder(_context, /*_roleManager,*/ _userManager);
+                var sampleDataSeeder = new SampleDataSeeder(_context, _roleManager, _userManager);
                 await sampleDataSeeder.SeedAllDataAsync(cancellationToken);
                 return Unit.Value;
             }

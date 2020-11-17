@@ -4,6 +4,7 @@ using Domain.Common;
 using Domain.Entities;
 using IdentityServer4.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System;
@@ -26,9 +27,10 @@ namespace Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().ToTable("Users")
-                .HasKey(u => u.Id);
-            modelBuilder.Entity<Role>().ToTable("Roles");
+            modelBuilder.Entity<User>().ToTable("Users"); //.Property(m => m.Id).HasColumnName("UserId");
+            //modelBuilder.Entity<IdentityUser>().ToTable("Users").Property(m => m.Id).HasColumnName("UserId");
+            modelBuilder.Entity<Role>().ToTable("Roles"); //.Property(m => m.Id).HasColumnName("RoleId");
+            //modelBuilder.Entity<IdentityRole>().ToTable("Roles").Property(m => m.Id).HasColumnName("RoleId");
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())

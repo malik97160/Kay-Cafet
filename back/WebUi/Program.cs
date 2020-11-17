@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Application.System.Command;
 using MediatR;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,7 +27,7 @@ namespace webUI
                 try
                 {
                     var kayCafetContext = services.GetRequiredService<KayCafetDbContext>();
-                    //kayCafetContext.Database.Migrate();
+                    kayCafetContext.Database.Migrate();
 
                     /*var identityContext = services.GetRequiredService<KayCafetDbContext>();
                     identityContext.Database.Migrate();*/

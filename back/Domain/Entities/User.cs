@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class User : IdentityUser
+    public class User
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string Id { get; init; }
+        public string FirstName { get; init; }
+        public string LastName { get; init; }
 
     }
 }

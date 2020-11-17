@@ -13,13 +13,20 @@ using System.Threading.Tasks;
 
 namespace Persistence
 {
-    public class KayCafetDbContext :  ApiAuthorizationDbContext<User>, IKayCafetDbContext
+    public class KayCafetDbContext :  DbContext, IKayCafetDbContext
     {
+        public KayCafetDbContext(DbContextOptions<KayCafetDbContext> options)
+            : base(options)
+        {
+        }
+
         //private readonly IDateTime _dateTime;
         private readonly ICurrentUserService _currentUserService;
 
-        public KayCafetDbContext(/*IDateTime dateTime,*/ ICurrentUserService currentUserService, DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
-            :base(options, operationalStoreOptions)
+        public DbSet<User> Users { get; set; }
+
+        public KayCafetDbContext(DbContextOptions<KayCafetDbContext> options, IDateTime dateTime, ICurrentUserService currentUserService)
+            : base(options)
         {
             //_dateTime = dateTime;
             _currentUserService = currentUserService;
@@ -29,7 +36,7 @@ namespace Persistence
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<User>().ToTable("Users"); //.Property(m => m.Id).HasColumnName("UserId");
             //modelBuilder.Entity<IdentityUser>().ToTable("Users").Property(m => m.Id).HasColumnName("UserId");
-            modelBuilder.Entity<Role>().ToTable("Roles"); //.Property(m => m.Id).HasColumnName("RoleId");
+            //modelBuilder.Entity<Role>().ToTable("Roles"); //.Property(m => m.Id).HasColumnName("RoleId");
             //modelBuilder.Entity<IdentityRole>().ToTable("Roles").Property(m => m.Id).HasColumnName("RoleId");
         }
 

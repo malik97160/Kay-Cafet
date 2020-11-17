@@ -5,6 +5,7 @@ using IdentityServer4.Test;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,15 +21,15 @@ namespace Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment environment)
         {
 
-            services.AddDbContext<KayCafetDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(configuration.GetConnectionString("KayCafetDatabase")));
 
             /*services.AddDefaultIdentity<User>()
                 .AddRoles<Role>()
                 .AddEntityFrameworkStores<KayCafetDbContext>();*/
 
-            services.AddIdentity<User, Role>()
-                .AddEntityFrameworkStores<KayCafetDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
             /*if (environment.IsEnvironment("Test"))
@@ -60,7 +61,7 @@ namespace Infrastructure
             else
             {*/
             services.AddIdentityServer()
-                    .AddApiAuthorization<User, KayCafetDbContext>();
+                    .AddApiAuthorization<IdentityUser, ApplicationDbContext>();
             //}
 
             services.AddAuthentication()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.System.Command;
+using Infrastructure.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -29,8 +30,8 @@ namespace webUI
                     var kayCafetContext = services.GetRequiredService<KayCafetDbContext>();
                     kayCafetContext.Database.Migrate();
 
-                    /*var identityContext = services.GetRequiredService<KayCafetDbContext>();
-                    identityContext.Database.Migrate();*/
+                    var identityContext = services.GetRequiredService<ApplicationDbContext>();
+                    identityContext.Database.Migrate();
 
                     var mediator = services.GetRequiredService<IMediator>();
                     await mediator.Send(new SeedSampleDataCommand(), CancellationToken.None);

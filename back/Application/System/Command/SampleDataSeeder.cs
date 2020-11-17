@@ -10,13 +10,13 @@ namespace Application.System.Command
     public class SampleDataSeeder
     {
         private readonly IKayCafetDbContext _context;
-        private readonly RoleManager<Role> _roleManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly string _adminRole = "Administrator";
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
         /*TODO create a usermanagement service to handle user creation and roles*/
 
-        public SampleDataSeeder(IKayCafetDbContext context, RoleManager<Role> roleManager, UserManager<User> userManager)
+        public SampleDataSeeder(IKayCafetDbContext context, RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _roleManager = roleManager;
@@ -32,9 +32,7 @@ namespace Application.System.Command
         {
             if (!(await _roleManager.RoleExistsAsync(_adminRole)))
             {
-                var adminRole = new Role() { 
-                    Name = _adminRole
-                };
+                var adminRole = new IdentityRole(_adminRole);
                 await _roleManager.CreateAsync(adminRole);
                 await _context.SaveChangesAsync(cancellationToken);
             }
@@ -43,21 +41,20 @@ namespace Application.System.Command
         private async Task SeedUsersAsync(CancellationToken cancellationToken)
         {
             var adminUserEmail = "malik.couchy@gmail.com";
+            var adminId = Guid.NewGuid().ToString();
             var adminUser = new User()
             {
-                Id = Guid.NewGuid().ToString(),
-                Email = adminUserEmail,
+                Id = adminId,
                 FirstName = "Malik",
-                LastName = "Couchy",
-                PhoneNumber = "0678956820"
+                LastName = "Couchy"
             };
 
             if (await _userManager.FindByEmailAsync(adminUserEmail) == null)
             {
-                await _userManager.CreateAsync(adminUser);
-                await _userManager.AddToRoleAsync(adminUser, _adminRole);
-                adminUser.EmailConfirmed = true;
-                adminUser.LockoutEnabled = false;
+                _context.Users.Add(adminUser);
+                var adminIdentity = new IdentityUser() { Email = adminUserEmail, Id = adminId, EmailConfirmed = true, LockoutEnabled = false, PhoneNumber = "0678956820" };
+                await _userManager.CreateAsync(adminIdentity);
+                await _userManager.AddToRoleAsync(adminIdentity, _adminRole);
                 await _context.SaveChangesAsync(cancellationToken);
             }
         }

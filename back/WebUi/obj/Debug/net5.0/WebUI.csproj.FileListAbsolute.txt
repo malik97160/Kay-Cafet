@@ -1,3 +1,8 @@
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.AssemblyInfoInputs.cache
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.AssemblyInfo.cs
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.csproj.CoreCompileInputs.cache
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\appsettings.json
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\WebUI.StaticWebAssets.xml
@@ -20,6 +25,7 @@ C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\IdentityServer4.EntityFramework.Storage.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\IdentityServer4.Storage.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\MediatR.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Microsoft.AspNetCore.ApiAuthorization.IdentityServer.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
@@ -48,20 +54,17 @@ C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Application.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Common.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Domain.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Infrastructure.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Persistence.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Infrastructure.pdb
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Persistence.pdb
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Application.pdb
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Common.pdb
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Domain.pdb
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.csprojAssemblyReference.cache
-C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.AssemblyInfoInputs.cache
-C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.AssemblyInfo.cs
-C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.csproj.CoreCompileInputs.cache
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\staticwebassets\WebUI.StaticWebAssets.Manifest.cache
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\staticwebassets\WebUI.StaticWebAssets.xml
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\scopedcss\bundle\WebUI.styles.css
@@ -71,6 +74,3 @@ C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\ref\WebUI.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.pdb
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.genruntimeconfig.cache
-C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Common.dll
-C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Common.pdb
-C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll

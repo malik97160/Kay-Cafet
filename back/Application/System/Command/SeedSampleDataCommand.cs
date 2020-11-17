@@ -12,10 +12,10 @@ namespace Application.System.Command
         public class SeedSampleDataCommandHandler : IRequestHandler<SeedSampleDataCommand>
         {
             private readonly IKayCafetDbContext _context;
-            private readonly RoleManager<Role> _roleManager;
-            private readonly UserManager<User> _userManager;
+            private readonly RoleManager<IdentityRole> _roleManager;
+            private readonly UserManager<IdentityUser> _userManager;
 
-            public SeedSampleDataCommandHandler(IKayCafetDbContext context, RoleManager<Role> roleManager, UserManager<User> userManager)
+            public SeedSampleDataCommandHandler(IKayCafetDbContext context, RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
             {
                 _context = context;
                 _roleManager = roleManager;

@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 
-namespace back.Controllers
+namespace webUI.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]

@@ -1,0 +1,11 @@
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\bin\Debug\net5.0\Common.deps.json
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\bin\Debug\net5.0\Common.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\bin\Debug\net5.0\ref\Common.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\bin\Debug\net5.0\Common.pdb
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5.0\Common.AssemblyInfoInputs.cache
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5.0\Common.AssemblyInfo.cs
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5.0\Common.csproj.CoreCompileInputs.cache
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5.0\Common.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5.0\ref\Common.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5.0\Common.pdb

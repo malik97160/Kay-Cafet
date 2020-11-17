@@ -1,3 +1,5 @@
+using Application;
+using Application.Common.Interfaces;
 using FluentValidation.AspNetCore;
 using Infrastructure;
 using Microsoft.AspNetCore.Builder;
@@ -7,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Persistence;
 
-namespace back
+namespace webUI
 {
     public class Startup
     {
@@ -26,13 +28,13 @@ namespace back
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfrastructure(Configuration, Environment);
-            //services.AddPersistence(Configuration);
-            //services.AddApplication();
+            services.AddPersistence(Configuration);
+            services.AddApplication();
 
             services.AddHealthChecks()
                 .AddDbContextCheck<KayCafetDbContext>();
 
-            //services.AddScoped<ICurrentUserService, CurrentUserService>();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
 
             services.AddHttpContextAccessor();
 

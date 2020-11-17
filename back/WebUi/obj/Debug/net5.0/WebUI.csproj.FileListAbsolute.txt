@@ -12,6 +12,7 @@ C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\IdentityModel.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\IdentityServer4.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\IdentityServer4.AspNetIdentity.dll
@@ -29,6 +30,7 @@ C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
@@ -45,8 +47,14 @@ C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Application.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Domain.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Infrastructure.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Persistence.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Infrastructure.pdb
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Persistence.pdb
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Application.pdb
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Domain.pdb
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.csprojAssemblyReference.cache
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.AssemblyInfoInputs.cache
@@ -63,5 +71,6 @@ C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\ref\WebUI.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.pdb
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\obj\Debug\net5.0\WebUI.genruntimeconfig.cache
-C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Persistence.dll
-C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Persistence.pdb
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Common.dll
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\Common.pdb
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\WebUi\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll

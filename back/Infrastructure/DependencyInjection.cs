@@ -1,4 +1,5 @@
-﻿using IdentityModel;
+﻿using Domain.Entities;
+using IdentityModel;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 using Infrastructure.Identity;
@@ -8,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Persistence;
 using System.Collections.Generic;
 using System.Security.Claims;
 
@@ -18,23 +20,28 @@ namespace Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment environment)
         {
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<KayCafetDbContext>(options =>
                 options.UseMySql(configuration.GetConnectionString("KayCafetDatabase")));
 
-            services.AddDefaultIdentity<ApplicationUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            /*services.AddDefaultIdentity<User>()
+                .AddRoles<Role>()
+                .AddEntityFrameworkStores<KayCafetDbContext>();*/
 
-            if (environment.IsEnvironment("Test"))
+            services.AddIdentity<User, Role>()
+                .AddEntityFrameworkStores<KayCafetDbContext>();
+
+
+            /*if (environment.IsEnvironment("Test"))
             {
                 services.AddIdentityServer()
-                    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>(options =>
+                    .AddApiAuthorization<User, ApplicationDbContext>(options =>
                     {
                         options.Clients.Add(new Client
                         {
-                            ClientId = "Northwind.IntegrationTests",
+                            ClientId = "KayCafet.IntegrationTests",
                             AllowedGrantTypes = { GrantType.ResourceOwnerPassword },
                             ClientSecrets = { new Secret("secret".Sha256()) },
-                            AllowedScopes = { "Northwind.WebUIAPI", "openid", "profile" }
+                            AllowedScopes = { "KayCafet.WebUIAPI", "openid", "profile" }
                         });
                     }).AddTestUsers(new List<TestUser>
                     {
@@ -51,10 +58,10 @@ namespace Infrastructure
                     });
             }
             else
-            {
-                services.AddIdentityServer()
-                    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
-            }
+            {*/
+            services.AddIdentityServer()
+                    .AddApiAuthorization<User, KayCafetDbContext>();
+            //}
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();

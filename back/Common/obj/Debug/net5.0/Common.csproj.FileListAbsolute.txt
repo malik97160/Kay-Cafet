@@ -9,3 +9,4 @@ C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5.0\Common.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5.0\ref\Common.dll
 C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5.0\Common.pdb
+C:\Users\Utilisateur\Documents\Developpement\KayCafet\back\Common\obj\Debug\net5.0\Common.csprojAssemblyReference.cache

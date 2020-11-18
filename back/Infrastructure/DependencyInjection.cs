@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Common.Interfaces;
+using Domain.Entities;
 using IdentityModel;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
@@ -21,6 +22,7 @@ namespace Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment environment)
         {
 
+            services.AddScoped<IUserManagerService, UserManagerService>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(configuration.GetConnectionString("KayCafetDatabase")));
 
@@ -28,7 +30,7 @@ namespace Infrastructure
                 .AddRoles<Role>()
                 .AddEntityFrameworkStores<KayCafetDbContext>();*/
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
@@ -61,7 +63,7 @@ namespace Infrastructure
             else
             {*/
             services.AddIdentityServer()
-                    .AddApiAuthorization<IdentityUser, ApplicationDbContext>();
+                    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
             //}
 
             services.AddAuthentication()

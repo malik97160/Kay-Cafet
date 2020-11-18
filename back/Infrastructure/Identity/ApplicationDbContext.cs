@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Infrastructure.Identity
 {
-    public class ApplicationDbContext : ApiAuthorizationDbContext<IdentityUser>
+    public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
         public ApplicationDbContext(
             DbContextOptions<ApplicationDbContext> options,

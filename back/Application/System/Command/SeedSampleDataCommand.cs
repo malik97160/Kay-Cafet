@@ -13,17 +13,17 @@ namespace Application.System.Command
         {
             private readonly IKayCafetDbContext _context;
             private readonly RoleManager<IdentityRole> _roleManager;
-            private readonly UserManager<IdentityUser> _userManager;
+            private readonly IUserManagerService _userManagerService;
 
-            public SeedSampleDataCommandHandler(IKayCafetDbContext context, RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
+            public SeedSampleDataCommandHandler(IKayCafetDbContext context, RoleManager<IdentityRole> roleManager, IUserManagerService userManagerService)
             {
                 _context = context;
                 _roleManager = roleManager;
-                _userManager = userManager;
+                _userManagerService = userManagerService;
             }
             public async Task<Unit> Handle(SeedSampleDataCommand request, CancellationToken cancellationToken)
             {
-                var sampleDataSeeder = new SampleDataSeeder(_context, _roleManager, _userManager);
+                var sampleDataSeeder = new SampleDataSeeder(_context, _roleManager, _userManagerService);
                 await sampleDataSeeder.SeedAllDataAsync(cancellationToken);
                 return Unit.Value;
             }

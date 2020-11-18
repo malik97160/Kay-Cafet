@@ -1,7 +1,9 @@
 ﻿using Application.Common.Interfaces;
 using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,15 +14,15 @@ namespace Application.System.Command
         private readonly IKayCafetDbContext _context;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly string _adminRole = "Administrator";
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IUserManagerService _userManagerService;
 
         /*TODO create a usermanagement service to handle user creation and roles*/
 
-        public SampleDataSeeder(IKayCafetDbContext context, RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
+        public SampleDataSeeder(IKayCafetDbContext context, RoleManager<IdentityRole> roleManager, IUserManagerService userManagerService)
         {
             _context = context;
             _roleManager = roleManager;
-            _userManager = userManager;
+            _userManagerService = userManagerService;
         }
         public async Task SeedAllDataAsync(CancellationToken cancellationToken)
         {
@@ -40,23 +42,25 @@ namespace Application.System.Command
 
         private async Task SeedUsersAsync(CancellationToken cancellationToken)
         {
+            var lastName = "couchy";
+            var firstName = "malik";
+            var adminAlreadyCreated = await _context.Users.AnyAsync(u => u.FirstName == firstName && u.LastName == lastName);
+            if (adminAlreadyCreated)
+                return;
+
             var adminUserEmail = "malik.couchy@gmail.com";
             var adminId = Guid.NewGuid().ToString();
             var adminUser = new User()
             {
                 Id = adminId,
-                FirstName = "Malik",
-                LastName = "Couchy"
+                FirstName = firstName,
+                LastName = lastName
             };
 
-            if (await _userManager.FindByEmailAsync(adminUserEmail) == null)
-            {
-                _context.Users.Add(adminUser);
-                var adminIdentity = new IdentityUser() { Email = adminUserEmail, Id = adminId, EmailConfirmed = true, LockoutEnabled = false, PhoneNumber = "0678956820" };
-                await _userManager.CreateAsync(adminIdentity);
-                await _userManager.AddToRoleAsync(adminIdentity, _adminRole);
-                await _context.SaveChangesAsync(cancellationToken);
-            }
+            _context.Users.Add(adminUser);
+            await _userManagerService.CreateUserAsync(firstName, lastName, "Azerty_971$", adminId, adminUserEmail, "0678956820");
+            await _context.SaveChangesAsync(cancellationToken);
+            await _userManagerService.AddRoleToUserByEmailAsync(adminUserEmail, _adminRole);
         }
     }
 }

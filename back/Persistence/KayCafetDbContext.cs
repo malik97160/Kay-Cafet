@@ -34,10 +34,7 @@ namespace Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().ToTable("Users"); //.Property(m => m.Id).HasColumnName("UserId");
-            //modelBuilder.Entity<IdentityUser>().ToTable("Users").Property(m => m.Id).HasColumnName("UserId");
-            //modelBuilder.Entity<Role>().ToTable("Roles"); //.Property(m => m.Id).HasColumnName("RoleId");
-            //modelBuilder.Entity<IdentityRole>().ToTable("Roles").Property(m => m.Id).HasColumnName("RoleId");
+            modelBuilder.Entity<User>().ToTable("Users");
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())

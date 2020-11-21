@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
-import { LoginPayload } from 'src/app/core/services/auth/login-paylaod';
 
 @Component({
   selector: 'app-login',
@@ -40,8 +39,7 @@ export class LoginComponent implements OnInit {
     if (this.signInForm.invalid)
       return false;
 
-    var payload: LoginPayload = this.signInForm.value;
-    this.authService.login(payload);
+    this.authService.signIn();
   }
 
   get login(){

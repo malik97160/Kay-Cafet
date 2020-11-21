@@ -1,69 +1,54 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginPayload } from './login-paylaod';
-import { map } from 'rxjs/operators'
 import { StorageService } from '../storage/storage.service';
-import jwtDecode from 'jwt-decode';
+import { UserManager } from 'oidc-client'
+import { ApplicationPaths, ApplicationName } from './api-authentication.constants';
+import { BehaviorSubject } from 'rxjs';
+export interface IUser {
+  name: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class AuthService {
   clientId: string = "KayCafet";
   jwtKey: string = 'jwt';
+  userManager: UserManager;
+  private userSubject: BehaviorSubject<IUser | null> = new BehaviorSubject(null);
   constructor(private http: HttpClient, private storageService: StorageService) {
   }
 
   isAuthenticated(): boolean {
-    debugger;
-    const token = this.storageService.retrieve(this.jwtKey);
-    return !this.isTokenExpired(token);
+    return false;
   }
 
-  isTokenExpired(token: string) {
-    if(!token) return true;
-
-    const date = this.getTokenExpirationDate(token);
-    if(date === undefined) return false;
-    return !(date.valueOf() > new Date().valueOf());
+  async signIn(){
+    await this.ensureUserManagerInitialized();
+    await this.userManager.signinRedirect();
   }
 
-  getTokenExpirationDate(token: string) {
-    debugger;
-    const decoded = jwtDecode(token) as JWtToken;
-
-    if (decoded.exp === undefined) return null;
-
-    const date = new Date(0); 
-    date.setUTCSeconds(decoded.exp);
-    return date;
-  }
-  
-  getToken(): string {
-      return this.storageService.retrieve(this.jwtKey);
-  }
-
-  login(loginPayload: LoginPayload){
-    const auth = {
-      username: loginPayload.login,
-      password: loginPayload.password,
-      grant_type: 'password',
-      client_id: this.clientId
+  private async ensureUserManagerInitialized(): Promise<void> {
+    if (this.userManager !== undefined) {
+      return;
     }
 
-    debugger;
-    const credentials = JSON.stringify(auth);
-    this.http.post('/api/authentication/login', credentials, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    }).pipe(map(data => {})).subscribe(result => {
-      const token = (<any>result).token;
-      this.storageService.store(this.jwtKey, token);
-    })
-  }
-}
+    const response = await fetch(ApplicationPaths.ApiAuthorizationClientConfigurationUrl);
+    if (!response.ok) {
+      throw new Error(`Could not load settings for '${ApplicationName}'`);
+    }
 
-export class JWtToken{
-  exp: number
+    const settings: any = await response.json();
+    settings.automaticSilentRenew = true;
+    settings.includeIdTokenInSilentRenew = true;
+    this.userManager = new UserManager(settings);
+
+    this.userManager.events.addUserSignedOut(async () => {
+      debugger;
+      await this.userManager.removeUser();
+      this.userSubject.next(null);
+    });
+  }
 }

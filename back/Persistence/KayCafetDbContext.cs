@@ -2,18 +2,14 @@
 using Common;
 using Domain.Common;
 using Domain.Entities;
-using IdentityServer4.EntityFramework.Options;
-using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Persistence
 {
-    public class KayCafetDbContext :  DbContext, IKayCafetDbContext
+    public class KayCafetDbContext : DbContext, IKayCafetDbContext
     {
         public KayCafetDbContext(DbContextOptions<KayCafetDbContext> options)
             : base(options)

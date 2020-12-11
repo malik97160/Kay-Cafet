@@ -1,13 +1,18 @@
 using Application;
 using Application.Common.Interfaces;
-using FluentValidation.AspNetCore;
 using Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Persistence;
+using System.Text;
+
+
 
 namespace webUI
 {
@@ -40,12 +45,21 @@ namespace webUI
 
             services
                 .AddControllersWithViews();
-                //.AddNewtonsoftJson()
-                //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<IKayCafetDbContext>());
+            //.AddNewtonsoftJson()
+            //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<IKayCafetDbContext>());
 
             services.AddRazorPages();
 
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
+            });
             // Customise default API behaviour
             //services.Configure<ApiBehaviorOptions>(options =>
             //{
@@ -58,11 +72,27 @@ namespace webUI
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            //services.AddOpenApiDocument(configure =>
-            //{
-            //    configure.Title = "Northwind Traders API";
-            //});
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    var symmecticKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]));
+                    options.IncludeErrorDetails = true;
 
+                    options.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        IssuerSigningKey = symmecticKey,
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        ValidAudience = Configuration["Jwt:Issuer"],
+                        RequireExpirationTime = true,
+                        RequireSignedTokens = true
+                    };
+                });
+
+            services.AddCors();
             _services = services;
         }
 
@@ -83,6 +113,12 @@ namespace webUI
             }
 
             //app.UseCustomExceptionHandler();
+            // global cors policy
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
             app.UseHealthChecks("/health");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -97,7 +133,6 @@ namespace webUI
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseIdentityServer();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

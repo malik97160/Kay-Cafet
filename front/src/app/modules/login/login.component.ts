@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { LoginPayload } from 'src/app/core/services/auth/login-paylaod';
 
 @Component({
   selector: 'app-login',
@@ -32,14 +33,15 @@ export class LoginComponent implements OnInit {
     document.getElementById('container').classList.remove('right-panel-active');
   }
 
-  signIn(){
+  async signIn(){
     debugger;
     this.signInFormSubmitted = true;
     
     if (this.signInForm.invalid)
       return false;
 
-    this.authService.signIn();
+      var payload: LoginPayload = this.signInForm.value;
+      await this.authService.signIn(payload);
   }
 
   get login(){

@@ -15,8 +15,9 @@ import localeFR from '@angular/common/locales/fr';
 import { CartRowsComponent } from './modules/cart/cart-rows/cart-rows.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { BaseUrlInterceptor } from './core/interceptors/base-url.interceptor';
 
 registerLocaleData(localeFR);
 @NgModule({
@@ -42,10 +43,9 @@ registerLocaleData(localeFR);
     FormsModule,
     HttpClientModule
   ],
-  providers: [{
-    provide: LOCALE_ID,
-    useValue: 'fr'
-  }, 
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr'}, 
+    { provide: HTTP_INTERCEPTORS, useClass: BaseUrlInterceptor, multi: true}, 
   AuthGuard,
   { provide: "BASE_API_URL", useValue: environment.apiUrl}],
   bootstrap: [AppComponent]

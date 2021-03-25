@@ -11,6 +11,7 @@ namespace Application.Common.Interfaces
     public interface IKayCafetDbContext
     {
         DbSet<User> Users { get; set; }
+        DbSet<RefreshToken> RefreshTokens { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

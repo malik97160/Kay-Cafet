@@ -3,6 +3,7 @@ using Common;
 using Domain.Common;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Persistence.CodeConfiguration;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace Persistence
         private readonly ICurrentUserService _currentUserService;
 
         public DbSet<User> Users { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         public KayCafetDbContext(DbContextOptions<KayCafetDbContext> options, IDateTime dateTime, ICurrentUserService currentUserService)
             : base(options)
@@ -30,7 +32,10 @@ namespace Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            var refreshBuilder = modelBuilder.Entity<RefreshToken>();
+            new RefreshTokenCodeConfiguration().Configure(refreshBuilder);
             modelBuilder.Entity<User>().ToTable("Users");
+            refreshBuilder.ToTable("RefreshTokens");
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())

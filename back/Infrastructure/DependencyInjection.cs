@@ -1,5 +1,7 @@
 ﻿using Application.Common.Interfaces;
+using Infrastructure.Authentication;
 using Infrastructure.Identity;
+using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +16,7 @@ namespace Infrastructure
         {
 
             services.AddScoped<IUserManagerService, UserManagerService>();
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(configuration.GetConnectionString("KayCafetDatabase")));
 

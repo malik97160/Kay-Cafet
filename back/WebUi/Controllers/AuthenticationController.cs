@@ -1,39 +1,27 @@
-﻿using Infrastructure.Identity;
+﻿using Common.Exceptions;
+using Infrastructure.Authentication;
+using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace webUI.Controllers
 {
     public class AuthenticationController : BaseController
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IConfiguration _configuration;
+        private readonly IAuthenticationService _authService;
 
-        public AuthenticationController(UserManager<ApplicationUser> userManager, IConfiguration configuration)
+        public AuthenticationController(IAuthenticationService authService)
         {
-            _userManager = userManager;
-            _configuration = configuration;
+            _authService = authService;
         }
-        [HttpPost]
-        public async Task<IActionResult> SignIn(string userName, string password)
-        {
-            var user = await _userManager.FindByNameAsync(userName);
-            if (user != null && (await _userManager.CheckPasswordAsync(user, password)))
-            {
-                var token = generateJwtToken(user);
-                return Ok(token);
-            }
 
-            return Unauthorized();
+        [HttpPost]
+        public async Task<IActionResult> LogIn(string userName, string password)
+        {
+            var response = await _authService.LoginAsync(userName, password);
+            return (response?.Success ?? false) ? Ok(response.Token) : Unauthorized(response.Errors);
         }
 
         [HttpGet]
@@ -44,42 +32,25 @@ namespace webUI.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register([FromBody] UserToRegister userAuth)
         {
-            var user = new ApplicationUser() { UserName = userAuth.userName, Email = userAuth.email };
-            var result = await _userManager.CreateAsync(user, userAuth.password);
-            if (result == null)
-                return BadRequest();
-
-            await _userManager.AddClaimAsync(user, new Claim("userName", user.UserName));
-            await _userManager.AddClaimAsync(user, new Claim("email", user.Email));
-            return Ok(result);
-        }
-        private string generateJwtToken(ApplicationUser user)
-        {
-            var now = DateTime.UtcNow;
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var claims = new Dictionary<string, object>(){
-                    { "userId", user.Id },
-                    { "userName", user.UserName }
-                };
-            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
-            var jwtToken = new SecurityTokenDescriptor
+            try
             {
-                //Subject = new ClaimsIdentity(claims),
-                Expires = now.AddDays(7),
-                NotBefore = now,
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-                Audience = _configuration["Jwt:Audience"],
-                Issuer = _configuration["Jwt:Issuer"],
-                Claims = claims
-            };
-            var token = tokenHandler.CreateToken(jwtToken);
-            return tokenHandler.WriteToken(token);
+                var token = await _authService.Register(userAuth);
+                return Ok(token);
+            }
+            catch (AuthenticationException e)
+            {
+
+                return BadRequest(new { Error = e.Errors });
+            }
         }
 
-        public record UserToRegister(string userName, string password, string email);
+        [HttpPost]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest refreshToken)
+        {
+            var response = await _authService.RefreshTokenAsync(refreshToken.JwtToken, refreshToken.RefreshToken);
+            return (response?.Success ?? false) ? Ok(response.Token) : Unauthorized(response.Errors);
+        }
     }
 }

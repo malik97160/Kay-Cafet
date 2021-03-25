@@ -10,11 +10,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Persistence;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Collections.Generic;
 using System.Text;
 
-
-
-namespace webUI
+namespace WebUI
 {
     public class Startup
     {
@@ -52,13 +52,17 @@ namespace webUI
 
             services.AddSwaggerGen(c =>
             {
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "KayCafet Api", Version = "v1" });
+                c.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "bearer"
                 });
+                c.OperationFilter<AuthenticationRequirementsOperationFilter>();
             });
             // Customise default API behaviour
             //services.Configure<ApiBehaviorOptions>(options =>
@@ -72,24 +76,33 @@ namespace webUI
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    var symmecticKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]));
-                    options.IncludeErrorDetails = true;
+            var symmecticKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]));
+            var tokenValidationParameters = new TokenValidationParameters()
+            {
+                IssuerSigningKey = symmecticKey,
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = Configuration["Jwt:Issuer"],
+                ValidAudience = Configuration["Jwt:Issuer"],
+                RequireExpirationTime = true,
+                RequireSignedTokens = true
+            };
 
-                    options.TokenValidationParameters = new TokenValidationParameters()
-                    {
-                        IssuerSigningKey = symmecticKey,
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = Configuration["Jwt:Issuer"],
-                        ValidAudience = Configuration["Jwt:Issuer"],
-                        RequireExpirationTime = true,
-                        RequireSignedTokens = true
-                    };
+            services.AddSingleton(tokenValidationParameters);
+
+            services.AddAuthentication(a =>
+            {
+                a.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                a.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                a.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }
+            )
+                .AddJwtBearer(x =>
+                {
+                    x.SaveToken = true;
+                    x.TokenValidationParameters = tokenValidationParameters;
                 });
 
             services.AddCors();
@@ -115,7 +128,7 @@ namespace webUI
             //app.UseCustomExceptionHandler();
             // global cors policy
             app.UseCors(x => x
-                .AllowAnyOrigin()
+                .WithOrigins("http://localhost:4200")
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
@@ -155,6 +168,22 @@ namespace webUI
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
+        }
+
+        public class AuthenticationRequirementsOperationFilter : IOperationFilter
+        {
+            public void Apply(OpenApiOperation operation, OperationFilterContext context)
+            {
+                if (operation.Security == null)
+                    operation.Security = new List<OpenApiSecurityRequirement>();
+
+
+                var scheme = new OpenApiSecurityScheme { Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "bearer" } };
+                operation.Security.Add(new OpenApiSecurityRequirement
+                {
+                    [scheme] = new List<string>()
+                });
+            }
         }
     }
 }

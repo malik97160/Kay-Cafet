@@ -9,7 +9,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(KayCafetDbContext))]
-    [Migration("20210325213748_Added_Refresh_Tokens")]
+    [Migration("20210325215012_Added_Refresh_Tokens")]
     partial class Added_Refresh_Tokens
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,6 +22,7 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.Entities.RefreshToken", b =>
                 {
                     b.Property<string>("Token")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<DateTime>("CreationDate")

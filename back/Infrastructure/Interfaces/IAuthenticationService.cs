@@ -11,7 +11,7 @@ namespace Infrastructure.Interfaces
     {
         Task<AuthenticationResult> LoginAsync(string userName, string password);
 
-        Task<AuthenticationResult> Register(UserToRegister userToRegister);
+        Task<AuthenticationResult> RegisterAsync(UserToRegister userToRegister);
 
         Task<AuthenticationResult> RefreshTokenAsync(string jwtToken, string refreshToken);
     }

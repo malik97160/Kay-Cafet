@@ -40,9 +40,6 @@ namespace Infrastructure.Authentication
             var user = await _userManager.FindByNameAsync(userName);
             if (user != null && await _userManager.CheckPasswordAsync(user, password))
             {
-                var claims = new Dictionary<string, object>(){
-                    { "userId", user.Id }
-                };
                 return await GenerateAccessToken(user);
             }
 
@@ -105,13 +102,13 @@ namespace Infrastructure.Authentication
 
             await _context.SaveChangesAsync(new System.Threading.CancellationToken());
 
-            var user = await _userManager.FindByIdAsync(validatedToken.Claims.Single(t => t.Type == "id").Value);
+            var user = await _userManager.FindByIdAsync(validatedToken.Claims.Single(t => t.Type == "UserId").Value);
 
             return await GenerateAccessToken(user);
 
         }
 
-        public async Task<AuthenticationResult> Register(UserToRegister userToRegister)
+        public async Task<AuthenticationResult> RegisterAsync(UserToRegister userToRegister)
         {
             if (string.IsNullOrWhiteSpace(userToRegister.email))
                 throw new AuthenticationException(new List<string>() { "email should not be null nor empty" });
@@ -173,6 +170,7 @@ namespace Infrastructure.Authentication
                     new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                    new Claim("UserId", user.Id),
                     }),
                 Expires = now.AddMinutes(tokenLifeTime),
                 NotBefore = now,

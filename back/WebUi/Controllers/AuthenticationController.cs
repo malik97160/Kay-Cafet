@@ -18,11 +18,12 @@ namespace webUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> LogIn(string userName, string password)
+        public async Task<ActionResult<TokensVm>> Login(string userName, string password)
         {
             var response = await _authService.LoginAsync(userName, password);
-            return (response?.Success ?? false) ? Ok(response.Token) : Unauthorized(response.Errors);
+            return ReturnTokensVm(response);
         }
+
 
         [HttpGet]
         [Authorize(AuthenticationSchemes = "Bearer")]
@@ -32,25 +33,27 @@ namespace webUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register([FromBody] UserToRegister userAuth)
+        public async Task<ActionResult<TokensVm>> Register([FromBody] UserToRegister userAuth)
         {
-            try
-            {
-                var token = await _authService.Register(userAuth);
-                return Ok(token);
-            }
-            catch (AuthenticationException e)
-            {
-
-                return BadRequest(new { Error = e.Errors });
-            }
+            var response = await _authService.RegisterAsync(userAuth);
+            return ReturnTokensVm(response);
         }
 
         [HttpPost]
-        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest refreshToken)
+        public async Task<ActionResult<TokensVm>> RefreshToken([FromBody] RefreshTokenRequest refreshToken)
         {
             var response = await _authService.RefreshTokenAsync(refreshToken.JwtToken, refreshToken.RefreshToken);
-            return (response?.Success ?? false) ? Ok(response.Token) : Unauthorized(response.Errors);
+            return ReturnTokensVm(response);
         }
+        private ActionResult<TokensVm> ReturnTokensVm(AuthenticationResult response)
+        {
+            if (!(response?.Success ?? false))
+            {
+                return Unauthorized(response.Errors);
+            }
+            var tokens = new TokensVm() { RefreshToken = response.RefreshToken, JwtToken = response.Token };
+            return Ok(tokens);
+        }
+
     }
 }

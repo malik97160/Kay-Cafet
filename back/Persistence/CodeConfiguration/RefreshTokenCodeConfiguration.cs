@@ -14,6 +14,7 @@ namespace Persistence.CodeConfiguration
         public void Configure(EntityTypeBuilder<RefreshToken> builder)
         {
             builder.HasKey(b => b.Token).HasName("PK_refreshTokens_Token");
+            builder.Property(b => b.Token).ValueGeneratedOnAdd();
             builder.HasOne(r => r.User).WithOne(u => u.RefreshToken).HasForeignKey<User>(r => r.RefreshTokenId);
         }
     }

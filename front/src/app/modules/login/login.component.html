@@ -22,8 +22,8 @@
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                 </div>
                 <span>ou utilise ton compte</span>
-                <input formControlName="login" type="email" placeholder="Login" />
-                <mat-error *ngIf="signInFormSubmitted && login.invalid" >Veuillez renseigner votre login svp.</mat-error>
+                <input formControlName="username" type="email" placeholder="Login" />
+                <mat-error *ngIf="signInFormSubmitted && username.invalid" >Veuillez renseigner votre login svp.</mat-error>
                 <input formControlName="password" type="password" placeholder="Password" />
                 <mat-error *ngIf="signInFormSubmitted && password.invalid" >Veuillez renseigner votre mot de passe svp.</mat-error>
                 <a href="#">Mot de passe oublié?</a>

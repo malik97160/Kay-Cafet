@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { LoginPayload } from 'src/app/core/services/auth/login-paylaod';
+import { single, take, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { LocalStorateJwtService } from 'src/app/core/services/auth/local-storate-jwt.service';
 
 @Component({
   selector: 'app-login',
@@ -15,14 +18,23 @@ export class LoginComponent implements OnInit {
   container: HTMLElement;
   signInForm: FormGroup;
   signInFormSubmitted: boolean = false;
-  constructor(private authService: AuthService, private formBuilder: FormBuilder) {
+  private readonly destroy$ = new Subject();
+  constructor(
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private jwtService: LocalStorateJwtService) {
    }
 
   ngOnInit(): void {
     this.signInForm = this.formBuilder.group({
-      login: ['', [Validators.required, Validators.maxLength(20)]],
+      username: ['', [Validators.required, Validators.maxLength(20)]],
       password: ['', [Validators.required]]
     })
+  }
+
+  ngOnDestroy(){
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   addRightPanelActive(){
@@ -33,19 +45,26 @@ export class LoginComponent implements OnInit {
     document.getElementById('container').classList.remove('right-panel-active');
   }
 
-  async signIn(){
-    debugger;
+  public signIn(){
     this.signInFormSubmitted = true;
     
     if (this.signInForm.invalid)
       return false;
 
       var payload: LoginPayload = this.signInForm.value;
-      await this.authService.signIn(payload);
+      this.authService.login(payload).pipe(
+        single()
+      ).subscribe(tokens => {
+        if(tokens){
+          debugger;
+          this.jwtService.setToken(tokens.jwtToken);
+          this.jwtService.setToken(tokens.refreshToken);
+        }
+      });
   }
 
-  get login(){
-    return this.signInForm.get('login');
+  get username(){
+    return this.signInForm.get('username');
   }
 
   get password(){

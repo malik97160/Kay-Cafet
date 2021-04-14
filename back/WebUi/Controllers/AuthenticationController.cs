@@ -18,9 +18,9 @@ namespace webUI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<TokensVm>> Login(string userName, string password)
+        public async Task<ActionResult<TokensVm>> Login([FromBody] LoginCredential credential)
         {
-            var response = await _authService.LoginAsync(userName, password);
+            var response = await _authService.LoginAsync(credential.userName, credential.password);
             return ReturnTokensVm(response);
         }
 

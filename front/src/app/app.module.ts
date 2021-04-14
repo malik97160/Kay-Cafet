@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { BaseUrlInterceptor } from './core/interceptors/base-url.interceptor';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 
 registerLocaleData(localeFR);
 @NgModule({
@@ -45,7 +45,7 @@ registerLocaleData(localeFR);
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr'}, 
-    { provide: HTTP_INTERCEPTORS, useClass: BaseUrlInterceptor, multi: true}, 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, 
   AuthGuard,
   { provide: "BASE_API_URL", useValue: environment.apiUrl}],
   bootstrap: [AppComponent]

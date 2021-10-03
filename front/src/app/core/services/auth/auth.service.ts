@@ -6,6 +6,10 @@ import { LoginPayload } from './login-paylaod';
 import jwtDecode from 'jwt-decode';
 import { ApiService } from '../api/api.service';
 import { Tokens } from 'src/app/Interfaces/shared-interface';
+import { map, switchMap } from 'rxjs/operators';
+import { Token } from '@angular/compiler/src/ml_parser/lexer';
+import { LocalStorateJwtService } from './local-storate-jwt.service';
+import { Router } from '@angular/router';
 export interface IUser {
   name: string;
 }
@@ -17,9 +21,15 @@ export interface IUser {
 
 export class AuthService {
   clientId: string = "KayCafet";
-  jwtKey: string = 'jwt';
+  jwtKey: string = 'jwtToken';
+  refreshTokenKey: string = 'refreshToken';
   userManager: UserManager;
-  constructor(private apiService: ApiService, private storageService: StorageService) {
+  redirectUrl: string;
+  constructor(
+    private apiService: ApiService,
+    private storageService: StorageService,
+    private jwtService: LocalStorateJwtService,
+    private readonly router: Router) {
   }
 
   isAuthenticated(): boolean {
@@ -49,8 +59,32 @@ export class AuthService {
       return this.storageService.retrieve(this.jwtKey);
   }
 
-  login(credentials: LoginPayload): Observable<Tokens> {
-    return this.apiService.post<Tokens, LoginPayload>('authentication/login', credentials);
+  login(credentials: LoginPayload): Observable<boolean> {
+    return this.apiService.post<Tokens, LoginPayload>('authentication/login', credentials)
+    .pipe(
+      map((tokens: Tokens) => {
+        if(tokens){
+          this.jwtService.setToken(tokens.jwtToken);
+          this.jwtService.setRefreshToken(tokens.refreshToken);
+          this.redirect();
+          return true;
+        }
+        return false;
+      })
+    );
+  }
+
+  private redirect() {
+    if (this.redirectUrl) {
+      this.router.navigate([this.redirectUrl]);
+      this.redirectUrl = null;
+      return;
+    }
+    this.router.navigate(['']);
+  }
+
+  redirectAfterLogin(){
+    
   }
   
 }

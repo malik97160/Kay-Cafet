@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  closeDialog(){
+    closeDialog(){
     this.dialogRef.close();
   }
 

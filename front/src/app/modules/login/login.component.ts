@@ -5,6 +5,7 @@ import { LoginPayload } from 'src/app/core/services/auth/login-paylaod';
 import { single, take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { LocalStorateJwtService } from 'src/app/core/services/auth/local-storate-jwt.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,8 +22,7 @@ export class LoginComponent implements OnInit {
   private readonly destroy$ = new Subject();
   constructor(
     private authService: AuthService,
-    private formBuilder: FormBuilder,
-    private jwtService: LocalStorateJwtService) {
+    private formBuilder: FormBuilder) {
    }
 
   ngOnInit(): void {
@@ -53,14 +53,8 @@ export class LoginComponent implements OnInit {
 
       var payload: LoginPayload = this.signInForm.value;
       this.authService.login(payload).pipe(
-        single()
-      ).subscribe(tokens => {
-        if(tokens){
-          debugger;
-          this.jwtService.setToken(tokens.jwtToken);
-          this.jwtService.setToken(tokens.refreshToken);
-        }
-      });
+        //untilDestroyed(this)
+      ).subscribe();
   }
 
   get username(){

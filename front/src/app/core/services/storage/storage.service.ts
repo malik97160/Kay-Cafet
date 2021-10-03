@@ -16,7 +16,11 @@ export class StorageService {
       let item = this.storage.getItem(key);
 
       if (item && item != 'undefined'){
-        return JSON.parse(item);
+        try{
+          return JSON.parse(item);
+        }catch(e){
+          return item;
+        }
       }
    }
 

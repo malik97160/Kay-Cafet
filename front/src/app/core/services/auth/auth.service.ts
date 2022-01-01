@@ -55,8 +55,20 @@ export class AuthService {
     return date;
   }
   
-  getToken(): string {
+  get token(): string {
       return this.storageService.retrieve(this.jwtKey);
+  }
+
+  get refreshToken(): string {
+    return this.storageService.retrieve(this.refreshTokenKey);
+}
+
+  generateRefreshToken(): Observable<Tokens>{
+    var oldTokens = {
+      refreshToken: this.refreshToken,
+      jwtToken: this.token
+    } as Tokens;
+    return this.apiService.post<Tokens, Tokens>('authentication/refreshToken', oldTokens);
   }
 
   login(credentials: LoginPayload): Observable<boolean> {

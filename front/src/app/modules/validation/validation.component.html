@@ -1,8 +1,5 @@
 <div class="validationContainer mainDiv">
     <div class="topButtonsDiv">
-        <div class="labelDiv">
-            <button class="pickUpHourButton"><span class="bold">Aujourd'hui</span> : 13h30</button>
-        </div>
         <div class="gobackDiv" (click)="goBackToHomePage()">
             <button mat-icon-button class="goBackButton btn"><mat-icon>keyboard_arrow_left</mat-icon> <span class="gobackLibelle" >Retour</span></button>
         </div>
@@ -32,6 +29,10 @@
                 <span>Paiment sur place</span>
             </div> -->
             <div class="confirmOrderDiv">
+                Vous souhaitez récupérer votre commande :   
+                <div class="labelDiv">
+                    <button type="button" (click)="displayPickUpHourPopup()" class="pickUpHourButton"><span class="bold">Aujourd'hui</span> : 13h30</button>
+                </div>
                 <div class="generalConditionsDiv">
                     <div>                      
                         <input type="checkbox" class="agreeGeneralTerms" formControlName="agree">

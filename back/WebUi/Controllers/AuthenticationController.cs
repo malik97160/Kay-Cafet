@@ -40,9 +40,9 @@ namespace webUI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<TokensVm>> RefreshToken([FromBody] RefreshTokenRequest refreshToken)
+        public async Task<ActionResult<TokensVm>> RefreshToken([FromBody] TokensVm tokens)
         {
-            var response = await _authService.RefreshTokenAsync(refreshToken.JwtToken, refreshToken.RefreshToken);
+            var response = await _authService.RefreshTokenAsync(tokens.JwtToken, tokens.RefreshToken);
             return ReturnTokensVm(response);
         }
         private ActionResult<TokensVm> ReturnTokensVm(AuthenticationResult response)

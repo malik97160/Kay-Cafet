@@ -30,7 +30,8 @@ export class ValidationComponent implements OnInit {
         Validators.email
       ]],
       agree: [false, Validators.requiredTrue],
-      comment: ''
+      comment: '',
+      pickUpTime: ''
     })
   }
 
@@ -50,6 +51,10 @@ export class ValidationComponent implements OnInit {
 
   setTotalPrice($event){
     this.totalAmount = $event;
+  }
+
+  displayPickUpHourPopup(){
+    alert("click on pickUp hour");
   }
 
   get email(){

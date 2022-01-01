@@ -139,7 +139,9 @@ namespace Infrastructure.Authentication
 
             try
             {
-                var principal = tokenHandler.ValidateToken(token, _tokenValidationParameters, out var validatedToken);
+                var validationParameters = _tokenValidationParameters;
+                validationParameters.ValidateLifetime = false;
+                var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
                 if (!IsJwtEncryptedWithValidSecurityAlgorithm(validatedToken))
                 {
                     return null;

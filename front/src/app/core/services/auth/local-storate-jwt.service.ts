@@ -13,12 +13,18 @@ export class LocalStorateJwtService {
     return this.get(this.tokenKey);
   }
 
+  public getRefreshToken(): Observable<string | null> {
+    return this.get(this.refreshTokenKey);
+  }
+
   public setToken(data: string): Observable<string> {
+    localStorage.removeItem(this.tokenKey);
     return this.set(data, this.tokenKey);
   }
 
   
   public setRefreshToken(data: string): Observable<string> {
+    localStorage.removeItem(this.refreshTokenKey);
     localStorage.setItem(this.refreshTokenKey, data);
     return of(data);
   }

@@ -1,0 +1,12 @@
+DomainName: KayCafet
+BoundedContext:
+- ProjectName: ProductManagement
+  Port: 5005
+  DbContext:
+    ContextName: ProductsDbContext
+    DatabaseName: ProductManagement
+    Provider: postgres
+  Entities:
+  - Name: Product
+    Features:
+    

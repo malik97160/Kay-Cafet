@@ -1,5 +1,5 @@
 DomainName: KayCafet
-BoundedContext:
+BoundedContexts:
 - ProjectName: ProductManagement
   Port: 5005
   DbContext:
@@ -55,6 +55,11 @@ BoundedContext:
     - Type: UpdateRecord
     - Type: DeleteRecord
     Properties:
+    - Name: IngredientId
+      Type: guid
+      IsPrimaryKey: true
+      CanFilter: true
+      CanSort: true
     - Name: ParentProductId
       Type: Guid
       ForeignEntityName: Product

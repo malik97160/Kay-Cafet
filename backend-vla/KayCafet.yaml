@@ -56,7 +56,7 @@ BoundedContext:
     - Type: DeleteRecord
     Properties:
     - Name: ParentProductId
-      Type: Guid?
+      Type: Guid
       ForeignEntityName: Product
       ForeignEntityPlural: Products
     - Name: IngredientProductId
@@ -71,7 +71,14 @@ BoundedContext:
       Type: double
       CanFilter: true
       CanSort: true
-  - Family:
+  - Name: Family
+    Features:
+    - Type: AddRecord
+    - Type: GetRecord
+    - Type: GetList
+    - Type: UpdateRecord
+    - Type: DeleteRecord
+    Properties:
     - Name: FamilyId
       IsPrimaryKey: true
       Type: guid
@@ -81,6 +88,9 @@ BoundedContext:
       Type: string
       CanFilter: true
       CanSort: true
+    - Name: Products
+      Type: ICollection<Product>
+      ForeignEntityPlural: Products
   AddGit: false
   SwaggerConfig:
     Title: KayCafet food management
@@ -114,10 +124,35 @@ BoundedContext:
       Type: guid
       CanFiltrer: true
       CanSort: true
+    - Name: ExpectedPickupTime
+      Type: datetime?
+      CanFilter: true
+      CanOrder: true
     - Name: Status
-      Type: int
+      Type: tinyint
       CanFilter: true
       CanOrder: true
     - Name: OrderLines
       Type: ICollection<OrderLine>
       ForeignEntityPlural: OrderLines
+  - Name: OrderLine
+    Feature:
+    - Type: AddRecord
+    - Type: GetRecord
+    - Type: GetList
+    - Type: UpdateRecord
+    - Type: DeleteRecord
+    Properties:
+    - Name: OrderLineId
+      Type: guid
+      IsPrimaryKey: true
+      CanFilter: true
+      CanOrder: true
+    - Name: Quantity
+      Type: double
+      CanFilter: true
+      CanOrder: true
+    - Name: OrderId
+      Type: guid
+      ForeignEntityName: Order
+      ForeignEntityMultiple: Orders

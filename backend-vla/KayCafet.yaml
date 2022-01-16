@@ -15,21 +15,109 @@ BoundedContext:
     - Type: UpdateRecord
     - Type: DeleteRecord
     Properties:
+    - Name: ProductId
+      IsPrimaryKey: true
+      Type: guid
+      CanFilter: true
+      CanSort: true
     - Name: Name
       Type: string
       CanFilter: true
       CanSort: true
+    - Name: FamilyId
+      Type: guid
+      ForeignEntityName: Family
+      ForeignEntityPlural: Families
     - Name: Description
       Type: string
       CanFilter: true
       CanSort: true
-    - Name: Description
+    - Name: UnitPrice
+      Type: number
+      CanFilter: true
+      CanSort: true
+    - Name: QuantityOnHand
+      Type: number
+      CanFilter: true
+      CanSort: true
+    - Name: ImageLink
       Type: string
       CanFilter: true
       CanSort: true
-    - Name: Description
+    - Name: Ingredients
+      Type: ICollection<Ingredient>
+      ForeignEntityPlural: Ingredients
+  - Name: Ingredient
+    Features:
+    - Type: AddRecord
+    - Type: GetRecord
+    - Type: GetList
+    - Type: UpdateRecord
+    - Type: DeleteRecord
+    Properties:
+    - Name: ParentProductId
+      Type: Guid?
+      ForeignEntityName: Product
+      ForeignEntityPlural: Products
+    - Name: IngredientProductId
+      Type: Guid
+      ForeignEntityName: Product
+      ForeignEntityPlural: Products
+    - Name: Unit
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: Amount
+      Type: double
+      CanFilter: true
+      CanSort: true
+  - Family:
+    - Name: FamilyId
+      IsPrimaryKey: true
+      Type: guid
+      CanFilter: true
+      CanSort: true
+    - Name: Name
       Type: string
       CanFilter: true
       CanSort: true
   AddGit: false
-    
+  SwaggerConfig:
+    Title: KayCafet food management
+    Description: Our Api uses a Rest based design, and is propulse by wrapt templates.
+    AddSwaggerComments: true
+    ApiContact:
+      Name: KayCafet
+      Email: malik.couchy@gmail.com
+      Url: https://kay-cafet.herokuapp.com
+- ProjectName: Ordering
+  Port: 5005
+  DbContext:
+    ContextName: OrdersDbContext
+    DatabaseName: Ordering
+    Provider: postgres
+  Entities:
+  - Name: Order
+    Features:
+    - Type: AddRecord
+    - Type: GetRecord
+    - Type: GetList
+    - Type: UpdateRecord
+    - Type: DeleteRecord
+    Properties:
+    - Name: OrderId
+      IsPrimaryKey: true
+      Type: guid
+      CanFilter: true
+      CanSort: true
+    - Name: CustomerId
+      Type: guid
+      CanFiltrer: true
+      CanSort: true
+    - Name: Status
+      Type: int
+      CanFilter: true
+      CanOrder: true
+    - Name: OrderLines
+      Type: ICollection<OrderLine>
+      ForeignEntityPlural: OrderLines

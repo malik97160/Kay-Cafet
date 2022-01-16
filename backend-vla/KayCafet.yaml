@@ -15,11 +15,6 @@ BoundedContexts:
     - Type: UpdateRecord
     - Type: DeleteRecord
     Properties:
-    - Name: ProductId
-      IsPrimaryKey: true
-      Type: guid
-      CanFilter: true
-      CanSort: true
     - Name: Name
       Type: string
       CanFilter: true
@@ -55,11 +50,6 @@ BoundedContexts:
     - Type: UpdateRecord
     - Type: DeleteRecord
     Properties:
-    - Name: IngredientId
-      Type: guid
-      IsPrimaryKey: true
-      CanFilter: true
-      CanSort: true
     - Name: ParentProductId
       Type: Guid
       ForeignEntityName: Product
@@ -84,11 +74,6 @@ BoundedContexts:
     - Type: UpdateRecord
     - Type: DeleteRecord
     Properties:
-    - Name: FamilyId
-      IsPrimaryKey: true
-      Type: guid
-      CanFilter: true
-      CanSort: true
     - Name: Name
       Type: string
       CanFilter: true
@@ -96,7 +81,6 @@ BoundedContexts:
     - Name: Products
       Type: ICollection<Product>
       ForeignEntityPlural: Products
-  AddGit: false
   SwaggerConfig:
     Title: KayCafet food management
     Description: Our Api uses a Rest based design, and is propulse by wrapt templates.
@@ -120,44 +104,34 @@ BoundedContexts:
     - Type: UpdateRecord
     - Type: DeleteRecord
     Properties:
-    - Name: OrderId
-      IsPrimaryKey: true
-      Type: guid
-      CanFilter: true
-      CanSort: true
     - Name: CustomerId
       Type: guid
-      CanFiltrer: true
+      CanFilter: true
       CanSort: true
     - Name: ExpectedPickupTime
       Type: datetime?
       CanFilter: true
-      CanOrder: true
+      CanSort: true
     - Name: Status
       Type: tinyint
       CanFilter: true
-      CanOrder: true
+      CanSort: true
     - Name: OrderLines
       Type: ICollection<OrderLine>
       ForeignEntityPlural: OrderLines
   - Name: OrderLine
-    Feature:
+    Features:
     - Type: AddRecord
     - Type: GetRecord
     - Type: GetList
     - Type: UpdateRecord
     - Type: DeleteRecord
     Properties:
-    - Name: OrderLineId
-      Type: guid
-      IsPrimaryKey: true
-      CanFilter: true
-      CanOrder: true
     - Name: Quantity
       Type: double
       CanFilter: true
-      CanOrder: true
+      CanSort: true
     - Name: OrderId
       Type: guid
       ForeignEntityName: Order
-      ForeignEntityMultiple: Orders
+      ForeignEntityPlural: Orders

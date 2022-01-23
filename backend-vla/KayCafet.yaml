@@ -39,6 +39,12 @@ BoundedContexts:
       Type: string
       CanFilter: true
       CanSort: true
+    - Name: TenantId
+      Type: guid
+      CanFilter: true
+      CanSort: true
+      ForeignEntityName: Organisation
+      ForeignEntityPlural: Organisations
     - Name: Ingredients
       Type: ICollection<Ingredient>
       ForeignEntityPlural: Ingredients
@@ -135,3 +141,50 @@ BoundedContexts:
       Type: guid
       ForeignEntityName: Order
       ForeignEntityPlural: Orders
+- ProjectName: OrganisationManagement
+  Port: 5005
+  DbContext:
+    ContextName: OrganisationsDbContext
+    DatabaseName: OrganisationManagement
+    Provider: postgres
+  Entities:
+  - Name: Company
+    Features:
+    - Type: AddRecord
+    - Type: GetRecord
+    - Type: GetList
+    - Type: UpdateRecord
+    - Type: DeleteRecord
+    Properties:
+    - Name: Name
+      Type: string
+      CanFilter: true
+      CanSort: true
+    - Name: AdresseId
+      Type: guid
+      CanFilter: true
+      CanSort: true
+      ForeignEntityName: Adresse
+      ForeignEntityPlural: Adresses
+    - Name: PersonInChargeId
+      Type: guid
+      CanFilter: true
+      CanSort: true
+      ForeignEntityName: PersonInCharge
+      ForeignEntityPlural: PersonInCharges
+  - Name: Adresse
+    Properties:
+    - Name: Adresse
+      Type: string
+    - Name: AdresseComplement
+      Type: string
+    - Name: PostCode
+      Type: string
+    - Name: City
+      Type: string
+    - Name: Siret
+      Type: string
+    - Name: Siren
+      Type: string
+
+
